@@ -6,9 +6,6 @@ import 'components/Common-widget/responsive_widget.dart';
 import 'components/NavigationBar/src/CompanyName.dart';
 import 'components/NavigationBar/src/NavBarItem.dart';
 import 'styles/app-colors.dart';
-import 'styles/app-colors.dart';
-import 'styles/app-colors.dart';
-
 
 enum NavIcons { Home, Users, Farms, Diseases, Complaints, Post }
 
@@ -160,7 +157,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               context: context,
                               backgroundColor: Colors.transparent,
                               builder: (context) {
-                                return Container(color: primaryLight,);
+                                return Container(
+                                  color: primaryLight,
+                                );
                               },
                             );
                           },
@@ -340,7 +339,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           context: context,
                           backgroundColor: Colors.transparent,
                           builder: (context) {
-                            return Container(color: primaryLight,);
+                            return Container(
+                              color: primaryLight,
+                            );
                           },
                         );
                       },
