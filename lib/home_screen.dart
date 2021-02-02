@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-
 import 'components/Common-widget/responsive_widget.dart';
 import 'components/NavigationBar/src/CompanyName.dart';
 import 'components/NavigationBar/src/NavBarItem.dart';
