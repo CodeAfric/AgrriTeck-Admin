@@ -1,40 +1,26 @@
+import 'package:agriteck_admin/components/NavigationBar/src/NavBarItem.dart';
 import 'package:flutter/material.dart';
+
+import 'constants.dart';
+import 'home_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'AgriTeck',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        inputDecorationTheme: kDefaultInputDecorationTheme,
+        //visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-
-      body: Center(
-
+      home: HomeScreen(
+          navIcons: NavIcons.Home,
       ),
-
     );
   }
 }
