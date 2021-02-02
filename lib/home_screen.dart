@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'components/Common-widget/responsive_widget.dart';
+import 'components/Farmers/farmers-section.dart';
 import 'components/NavigationBar/src/CompanyName.dart';
 import 'components/NavigationBar/src/NavBarItem.dart';
 import 'styles/app-colors.dart';
@@ -193,12 +194,6 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width - 300,
             padding: EdgeInsets.only(left: 50, right: 20),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage("assets/images/background.jpeg"),
-              ),
-            ),
             child: Scrollbar(
               thickness: 10,
               controller: _scrollController,
@@ -206,6 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: _scrollController,
                 child: Column(
                   children: [
+                    navIco == NavIcons.Users ? FarmersSection() : Container(),
                     // navIco == NavIcons.Home ? HomeSection() : Container(),
                     // navIco == NavIcons.About ? AboutSection() : Container(),
                     // navIco == NavIcons.Services
@@ -370,7 +366,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     // navIco == NavIcons.Home ? HomeSection() : Container(),
-                    // navIco == NavIcons.About ? AboutSection() : Container(),
+                    navIco == NavIcons.Users ? FarmersSection() : Container(),
                     // navIco == NavIcons.Services
                     //     ? ServiceSection()
                     //     : Container(),
