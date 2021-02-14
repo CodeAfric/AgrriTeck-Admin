@@ -1,3 +1,4 @@
+import 'package:agriteck_admin/components/Common-widget/custom-table.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -202,7 +203,91 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     navIco == NavIcons.Users ? FarmersSection() : Container(),
-                    // navIco == NavIcons.Home ? HomeSection() : Container(),
+                    navIco == NavIcons.Home ? CustomTable(title: 'Farmers List',
+                      verticalLines: false,
+                      hasDelete: true,
+                      hasEdit: true,
+                      dataSource: [
+                        {
+                      'Name':'Kofi Nti ',
+                        'Gender':'Male',
+                        'Contact':"0248485308",
+                        'Location':"Fomena City",
+                        'Farm':"3"
+                      },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                        {
+                          'Name':'Kofi Nti',
+                          'Gender':'Male',
+                          'Contact':"0248485308",
+                          'Location':"Fomena City",
+                          'Farm':"3"
+                        },
+                      ]
+
+                    ) : Container(),
                     // navIco == NavIcons.About ? AboutSection() : Container(),
                     // navIco == NavIcons.Services
                     //     ? ServiceSection()

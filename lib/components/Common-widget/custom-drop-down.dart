@@ -18,7 +18,7 @@ class CustomDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20, top: 3, bottom: 3, right: 20),
+      padding: EdgeInsets.only(left: 20, right: 20),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
