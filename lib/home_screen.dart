@@ -6,10 +6,10 @@ import 'components/Common-widget/responsive_widget.dart';
 import 'components/Farmers/farmers-section.dart';
 import 'components/NavigationBar/src/CompanyName.dart';
 import 'components/NavigationBar/src/NavBarItem.dart';
+import 'components/disease-section/disease-page.dart';
 import 'styles/app-colors.dart';
 
 enum NavIcons { Home, Users, Farms, Diseases, Complaints, Post }
-
 class HomeScreen extends StatefulWidget {
   final NavIcons navIcons;
   HomeScreen({Key key, @required this.navIcons}) : super(key: key);
@@ -49,6 +49,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget deskTop(BuildContext context) {
     return Scaffold(
+      floatingActionButton:navIco==NavIcons.Diseases? Tooltip(
+        message: "Train Model",
+        child: FloatingActionButton(
+          onPressed: (){
+
+          },
+          hoverColor: primaryLight,
+          splashColor: primaryLight,
+          backgroundColor: primaryDark,
+          child: Icon(FontAwesome.train,color: Colors.white,size: 25,),
+        ),
+      ):navIco==NavIcons.Post?Tooltip(
+        message: "Add New Post",
+        child: FloatingActionButton(
+          onPressed: (){
+
+          },
+          hoverColor: primaryLight,
+          splashColor: primaryLight,
+          backgroundColor: primaryDark,
+          child: Icon(FontAwesome.comments,color: Colors.white,size: 25,),
+        ),
+      ):Container(),
         body: Row(
       children: [
         Align(
@@ -203,7 +226,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     navIco == NavIcons.Users ? FarmersSection() : Container(),
-                    navIco == NavIcons.Home ? CustomTable(title: 'Farmers List',
+                    navIco==NavIcons.Diseases?DiseasePage():Container(),
+                    navIco == NavIcons.Home ?
+                    CustomTable(
+                        title: 'Farmers List',
                       verticalLines: false,
                       hasDelete: true,
                       hasEdit: true,
@@ -450,8 +476,95 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: _scrollController,
                 child: Column(
                   children: [
-                    // navIco == NavIcons.Home ? HomeSection() : Container(),
                     navIco == NavIcons.Users ? FarmersSection() : Container(),
+                    navIco==NavIcons.Diseases?DiseasePage():Container(),
+                    navIco == NavIcons.Home ?
+                    CustomTable(
+                        title: 'Farmers List',
+                        verticalLines: false,
+                        hasDelete: true,
+                        hasEdit: true,
+                        dataSource: [
+                          {
+                            'Name':'Kofi Nti ',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                          {
+                            'Name':'Kofi Nti',
+                            'Gender':'Male',
+                            'Contact':"0248485308",
+                            'Location':"Fomena City",
+                            'Farm':"3"
+                          },
+                        ]
+
+                    ) : Container(),
                     // navIco == NavIcons.Services
                     //     ? ServiceSection()
                     //     : Container(),
