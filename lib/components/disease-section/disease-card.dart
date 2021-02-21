@@ -1,4 +1,4 @@
-import 'package:agriteck_admin/model-data/diseases-data.dart';
+import 'package:agriteck_admin/model-data/data-models.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,13 +11,15 @@ class DiseaseCard extends StatefulWidget {
       {Key key,
         this.index,
         this.press,
-        @required this.hieght,
+        @required this.ht,
+        this.diseases,
         @required this.width})
       : super(key: key);
 
   final int index;
   final Function press;
-  final double width, hieght;
+  final double width, ht;
+  final Diseases diseases;
 
   @override
   _DiseaseCardState createState() => _DiseaseCardState();
@@ -37,7 +39,7 @@ class _DiseaseCardState extends State<DiseaseCard> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: 200),
         width: widget.width,
-        height: widget.hieght,
+        height: widget.ht,
         padding: EdgeInsets.only(bottom: 15),
         decoration: BoxDecoration(
           color: isHover ? Colors.white.withOpacity(0.8) : Colors.white,
@@ -63,7 +65,7 @@ class _DiseaseCardState extends State<DiseaseCard> {
               width: double.infinity,
               imageUrl: "gs://my-portfolio-5adb3.appspot.com/DSC_0194-e1399462629842.jpg",
               placeholder: (context, url) => new CircularProgressIndicator(),
-              errorWidget: (context, url, error) => new Image.asset( diseases[widget.index].url,fit: BoxFit.fill,),
+              errorWidget: (context, url, error) => new Image.asset( widget.diseases.images[0],fit: BoxFit.fill,),
             ),
             SizedBox(
               height: 10,
@@ -71,7 +73,7 @@ class _DiseaseCardState extends State<DiseaseCard> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                diseases[widget.index].name,
+                widget.diseases.name,
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -89,14 +91,14 @@ class _DiseaseCardState extends State<DiseaseCard> {
                       color: Colors.black54,
                       fontWeight: FontWeight.w600),
                   children: <TextSpan>[
-                    diseases[widget.index].description.length > 250
+                    widget.diseases.description.length > 250
                         ? TextSpan(
-                        text: diseases[widget.index]
+                        text:  widget.diseases
                             .description
                             .substring(0, 250) +
                             "....")
                         : TextSpan(
-                        text: diseases[widget.index].description + "...."),
+                        text:  widget.diseases.description + "...."),
                     TextSpan(
                         text: " Read More",
                         style: TextStyle(

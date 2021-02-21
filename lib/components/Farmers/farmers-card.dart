@@ -1,105 +1,111 @@
-import 'package:agriteck_admin/model-data/farmers.dart';
+import 'package:agriteck_admin/model-data/data-models.dart';
+import 'package:agriteck_admin/styles/app-colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import '../../constants.dart';
 
-class FarmerCard extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return  ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          PaginatedDataTable(
-            header: Text('Farmer List'),
-            rowsPerPage: 9,
-            columns: [
-              DataColumn(label: Text('Name')),
-              DataColumn(label: Text('Telephone')),
-              DataColumn(label: Text('Location')),
-              DataColumn(label: Text('No. Farms')),
-            ],
-            source: _DataSources(context),
-          ),
-        ],
-    );
-  }
+class FarmerCard extends StatefulWidget {
+  const FarmerCard(
+      {Key key,
+        this.index,
+        this.press,
+        @required this.height,
+        @required this.width,
+        this.farmers,
+        this.imageSize})
+      : super(key: key);
+
+  final int index;
+  final Function press;
+  final double width, height, imageSize;
+  final Farmers farmers;
+
+  @override
+  _FarmerCardState createState() => _FarmerCardState();
 }
 
-class _DataSources extends DataTableSource {
-  _DataSources(this.context) {
-    _rows = <Farmers>[
-    Farmers(
-         "Kwaku Bosman",
-         "Duampopo",
-        "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4),
-      Farmers(
-          "Kwaku Bosman",
-          "Duampopo",
-          "0548402534",4)
-    ];
-  }
-
-  final BuildContext context;
-  List<Farmers> _rows;
-
-  int _selectedCount = 0;
-
+class _FarmerCardState extends State<FarmerCard> {
+  Duration duration = Duration(milliseconds: 200);
+  bool isHover = false;
   @override
-  DataRow getRow(int index) {
-    assert(index >= 0);
-    if (index >= _rows.length) return null;
-    final row = _rows[index];
-    return DataRow.byIndex(
-      index: index,
-      selected: row.selected,
-      onSelectChanged: (value) {
-        if (row.selected != value) {
-          _selectedCount += value ? 1 : -1;
-          assert(_selectedCount >= 0);
-          row.selected = value;
-          notifyListeners();
-        }
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: widget.press,
+      hoverColor: Colors.transparent,
+      onHover: (value) {
+        setState(() {
+          isHover = value;
+        });
       },
-      cells: [
-        DataCell(Text(row.name)),
-        DataCell(Text(row.telephone)),
-        DataCell(Text(row.location)),
-        DataCell(Text(row.numFarms.toString())),
-      ],
+      child: AnimatedContainer(
+        duration: duration,
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        width: widget.width,
+        decoration: BoxDecoration(
+          color: isHover
+              ? primaryLight.withOpacity(0.7)
+              :primaryLight.withOpacity(0.3),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [if (isHover) kDefaultCardShadow],
+        ),
+        child: Column(
+          children: [
+            Transform.translate(
+              offset: Offset(0, -40),
+              child: AnimatedContainer(
+                duration: duration,
+                height: 90,
+                width: widget.imageSize,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 7),
+                  boxShadow: [if (!isHover) kDefaultCardShadow],
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(widget.farmers.img),
+                  ),
+                ),
+              ),
+            ),
+            Transform.translate(
+                offset: Offset(0, -30),
+                child: Container(
+                  child: Column(
+                    children: [
+                      itemRow(context,'Name',widget.farmers.name),
+                      itemRow(context,'Age',widget.farmers.age.toString()+' Years'),
+                      itemRow(context,'Location',widget.farmers.location),
+                      itemRow(context,'Speciality',widget.farmers.specialized),
+                      itemRow(context,'NO. Plot',widget.farmers.numFarms.toString()),
+                      itemRow(context,'Total Farm Size',widget.farmers.farmSize.toString() +' Acr'),
+                    ],
+                  ),
+                )),
+
+
+          ],
+        ),
+      ),
     );
   }
 
-  @override
-  int get rowCount => _rows.length;
-
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get selectedRowCount => _selectedCount;
+  Widget itemRow(BuildContext context,String lab,String content){
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(top: BorderSide(width: 1,color: Colors.grey)),
+        boxShadow: [if (!isHover) kDefaultCardShadow],
+      ),
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child:  Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            flex: 1,
+              child: Text(lab+' :',style: TextStyle(fontWeight: FontWeight.w500,color: Colors.grey,fontSize: 12),overflow: TextOverflow.clip,softWrap: true,)),
+          Text(content,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black54,fontSize: 12),),
+        ],
+      ),
+    );
+  }
 }
