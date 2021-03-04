@@ -8,6 +8,7 @@ import 'components/Farmers/farmers-section.dart';
 import 'components/NavigationBar/src/CompanyName.dart';
 import 'components/NavigationBar/src/NavBarItem.dart';
 import 'components/disease-section/disease-page.dart';
+import 'components/farms-section/farms-page.dart';
 import 'model-data/test-data.dart';
 import 'other-classes/providers.dart';
 import 'styles/app-colors.dart';
@@ -22,10 +23,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List farmers,diseases;
+  List farmers,diseases,farms;
   void generateData(){
     diseases=ListGenerator.diseasesData();///here we get the disease data
     farmers=ListGenerator.farmerList();///here we get the farmer list
+    farms=ListGenerator.farmsData();//here we get farms data
      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {//this line is called because setState method before build method complete process of building widgets.
        ///here on this line , we update the two list of the disease,
        ///since we are not doing any search here, the search List will be the same as the main List.
@@ -35,6 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
        ///since we are not doing any search here, the search List will be the same as the main List.
        Provider.of<AppProviders>(context, listen: false).updateFarmers(farmers);
        Provider.of<AppProviders>(context, listen: false).updateSearchFarmers(farmers);
+       ///here on this line , we update the two list of the farms,
+       ///since we are not doing any search here, the search List will be the same as the main List.
+       Provider.of<AppProviders>(context, listen: false).updateFarm(farms);
+       Provider.of<AppProviders>(context, listen: false).updateSearchFarms(farms);
         });
 
   }
@@ -54,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 //----------------------------------------------------------------------------------------
   final ScrollController _scrollController = ScrollController();///scroll Controller to help us regulate the vertical scroll bar
-
   @override
   void initState() {
     super.initState();
@@ -73,29 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget deskTop(BuildContext context) {
     return Scaffold(
-      floatingActionButton:navIco==NavIcons.Diseases? Tooltip(
-        message: "Train Model",
-        child: FloatingActionButton(
-          onPressed: (){
-
-          },
-          hoverColor: primaryLight,
-          splashColor: primaryLight,
-          backgroundColor: primaryDark,
-          child: Icon(FontAwesome.train,color: Colors.white,size: 25,),
-        ),
-      ):navIco==NavIcons.Post?Tooltip(
-        message: "Add New Post",
-        child: FloatingActionButton(
-          onPressed: (){
-
-          },
-          hoverColor: primaryLight,
-          splashColor: primaryLight,
-          backgroundColor: primaryDark,
-          child: Icon(FontAwesome.comments,color: Colors.white,size: 25,),
-        ),
-      ):Container(),
         body: Row(
       children: [
         Align(
@@ -249,6 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: _scrollController,
                 child: Column(
                   children: [
+                    navIco==NavIcons.Farms?FarmsPage():Container(),
                     navIco == NavIcons.Users ? FarmersSection() : Container(),
                     navIco==NavIcons.Diseases?DiseasePage():Container(),
                     navIco == NavIcons.Home ?
@@ -369,29 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget tablet(BuildContext context) {
     return Scaffold(
-        floatingActionButton:navIco==NavIcons.Diseases? Tooltip(
-          message: "Train Model",
-          child: FloatingActionButton(
-            onPressed: (){
 
-            },
-            hoverColor: primaryLight,
-            splashColor: primaryLight,
-            backgroundColor: primaryDark,
-            child: Icon(FontAwesome.train,color: Colors.white,size: 25,),
-          ),
-        ):navIco==NavIcons.Post?Tooltip(
-          message: "Add New Post",
-          child: FloatingActionButton(
-            onPressed: (){
-
-            },
-            hoverColor: primaryLight,
-            splashColor: primaryLight,
-            backgroundColor: primaryDark,
-            child: Icon(FontAwesome.comments,color: Colors.white,size: 25,),
-          ),
-        ):Container(),
         body: Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
@@ -523,6 +484,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: _scrollController,
                 child: Column(
                   children: [
+                    navIco==NavIcons.Farms?FarmsPage():Container(),
                     navIco == NavIcons.Users ? FarmersSection() : Container(),
                     navIco==NavIcons.Diseases?DiseasePage():Container(),
                     navIco == NavIcons.Home ?

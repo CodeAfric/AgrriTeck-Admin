@@ -8,6 +8,8 @@ class AppProviders with ChangeNotifier {
   List farmerList,searchFarmer;
   ///one will hold all the Disease and the other will hold filtered disease after a search
   List diseasesData,searchDisease;
+  ///one will hold all the farm and the other will hold filtered farms after a search
+  List farmsData,searchFarm;
 
   void updateLogin(bool login) {
     isLoggedIn=login;
@@ -34,6 +36,15 @@ class AppProviders with ChangeNotifier {
     notifyListeners();
   }
 //-----------------------------------------------------------
+  ///this code help to update the two Farms List
+  void updateFarm(List mainData) {
+    farmsData=mainData;
+    notifyListeners();
+  }
+  void updateSearchFarms(List filteredData) {
+    searchFarm=filteredData;
+    notifyListeners();
+  }
   bool get userState => isLoggedIn;
   ///After updating the two different list of farmers, we get the data with these getters
   List get getFarmerList=>farmerList;
@@ -43,5 +54,10 @@ class AppProviders with ChangeNotifier {
   List get getDiseaseData=>diseasesData;
   List get getSearchDisease=>searchDisease;
   //-----------------------------------------------------------------------------------
+  ///After updating the two different list of farms, we get the data with these getters
+  List get getFarmData=>farmsData;
+  List get getSearchFarm=>searchFarm;
+//-----------------------------------------------------------------------------------
+
 
 }

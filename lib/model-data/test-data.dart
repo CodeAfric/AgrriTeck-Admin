@@ -6,24 +6,49 @@ class ListGenerator{
     List<Diseases> data=[
       Diseases(
           name: "Powdery Mildew",
+          causes: [],
+          comment: [],
+          treatment: [],
+          signs: [],
+          preventiveM: [],
           images: ["assets/images/plant2.jpg",],
           description:
           "Powdery mildew leaves a telltale white dusty coating on leaves, stems and flowers. Caused by a fungus, it affects a number of plants, including lilacs, apples, grapes, cucumbers, peas, phlox, daisies and roses."),
       Diseases(
+          causes: [],
+          comment: [],
+          treatment: [],
+          signs: [],
+          preventiveM: [],
           name: "Downy Mildew",
           images: ["assets/images/DSC_0194-e1399462629842.jpg"],
           description:
           " Downy mildew is caused by fungus-like organisms and affects many ornamentals and edibles, such as impatiens, pansies, columbine, grapevines, lettuce and cole crops such as broccoli and cauliflower. Often occurring during wet weather, downy mildew causes the upper portion of leaves to discolor, while the bottoms develop white or gray mold."
               "\nSome desktop Softwares are: Static web application,Dynamic web application,E-commerce,Portal web app,Content management system."),
       Diseases(
+          causes: [],
+          comment: [],
+          treatment: [],
+          signs: [],
+          preventiveM: [],
           name: "Fungal leaf spot",
           images: ["assets/images/plant2.jpg",],
           description: "Powdery mildew leaves a telltale white dusty coating on leaves, stems and flowers. Caused by a fungus, it affects a number of plants, including lilacs, apples, grapes, cucumbers, peas, phlox, daisies and roses."),
       Diseases(
+          causes: [],
+          comment: [],
+          treatment: [],
+          signs: [],
+          preventiveM: [],
           name: "Coral spot",
           images: ["assets/images/DSC_0194-e1399462629842.jpg",],
           description: "Powdery mildew leaves a telltale white dusty coating on leaves, stems and flowers. Caused by a fungus, it affects a number of plants, including lilacs, apples, grapes, cucumbers, peas, phlox, daisies and roses."),
       Diseases(
+          causes: [],
+          comment: [],
+          treatment: [],
+          signs: [],
+          preventiveM: [],
           name: "Grey mould",
           images: [ "assets/images/plant2.jpg",],
           description: "Powdery mildew leaves a telltale white dusty coating on leaves, stems and flowers. Caused by a fungus, it affects a number of plants, including lilacs, apples, grapes, cucumbers, peas, phlox, daisies and roses."),
@@ -34,6 +59,7 @@ class ListGenerator{
  static List<Farmers> farmerList(){
    List<Farmers> data=[
      Farmers(
+       farmerId: "10001",
          img:"assets/images/farmer1.jpg",
          name: "Elorm Amantefi",
          location: "Adansi Fomena",
@@ -43,6 +69,7 @@ class ListGenerator{
          specialized: "Cocoa Farming",
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10002",
          img:"assets/images/farmer2.jpg",
          name: "Kofi Appiah",
          location: "Old Edubiase",
@@ -52,6 +79,7 @@ class ListGenerator{
          numFarms: 6,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10003",
          img:"assets/images/farmer3.jpg",
          name: "Elvis Sarfo Antwi",
          location: "Kwabre Kenyasi",
@@ -61,6 +89,7 @@ class ListGenerator{
          farmSize: 12.5,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10004",
          img:"assets/images/farmer4.jpg",
          name: "Nyamaah Frimpong Emmanuel",
          location: "Atonsu Monaco",
@@ -70,6 +99,7 @@ class ListGenerator{
          farmSize: 9.8,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10005",
          img:"assets/images/farmer5.jpg",
          name: "Akua Frema",
          location: "Meduma",
@@ -79,6 +109,7 @@ class ListGenerator{
          age: 52,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10006",
          img:"assets/images/farmer6.jpg",
          name: "Obideaba Isaac",
          location: "Adansi Dompoasi",
@@ -88,6 +119,7 @@ class ListGenerator{
          specialized: "Maize Farming",
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10007",
          img:"assets/images/farmer7.jpg",
          name: "Joyce Blessing",
          location: "Old Akrofuom",
@@ -97,6 +129,7 @@ class ListGenerator{
          age: 55,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10008",
          img:"assets/images/farmer8.jpg",
          name: "Frank Castle",
          location: "Duampompo",
@@ -106,6 +139,7 @@ class ListGenerator{
          farmSize: 9,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10009",
          img:"assets/images/farmer9.jpg",
          name: "Kofi Appiah",
          location: "Ampunyase",
@@ -115,6 +149,7 @@ class ListGenerator{
          farmSize: 6,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10010",
          img:"assets/images/farmer10.jpeg",
          name: "Frimpong Sampson",
          location: "Adukoraba",
@@ -124,6 +159,7 @@ class ListGenerator{
          farmSize: 23,
          telephone:"0248569654"),
      Farmers(
+         farmerId: "10011",
          img:"assets/images/farmer11.jpg",
          name: "Ama Nkunim",
          location: "Old Ayaase",
@@ -134,5 +170,417 @@ class ListGenerator{
          telephone:"0248569654"),
    ];
    return data;
+ }
+
+ static List<Farms> farmsData(){
+   return [
+     Farms(
+       farmId: "F10001",
+       farmerId: "10001",
+       farmSize: 20.6,
+       cropType: ["Cabbage","Green Pepper","Watermelon"],
+       comment: [],
+       images: ["assets/plants/crop1.png","assets/plants/crop2.jpg","assets/plants/crop3.jpg","assets/plants/crop4.jpg"],
+         location: "Kwesi Mintim",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+       farmState: [
+         {
+           'stamp':"20/02/21",
+           'state':"Land Clearing",
+           'input':"Cutlass, Herbicides"
+         },
+         {
+           'stamp':"03/03/21",
+           'state':"Planting"
+
+         },
+         {
+           'stamp':"14/04/21",
+           'state':"First Fertilizer",
+           'input':"N:P:K 15,15,15"
+         },
+         {
+           'stamp':"20/05/21",
+           'state':"Second Fertilizer",
+          'input':"Asasewura Fertilizer"
+         },
+         {
+           'stamp':"10/06/21",
+           'state':"Harvesting",
+           'input':"Combine Harvester"
+         }
+       ]
+     ),
+     Farms(
+         farmId: "F10002",
+         farmerId: "10001",
+         farmSize: 11.6,
+         cropType: ["Cabbage","Pepper"],
+         comment: [],
+         images: ["assets/plants/crop3.jpg","assets/plants/crop7.jpg","assets/plants/crop6.jpg","assets/plants/crop4.jpg"],
+         location: "Kwaku Kurom",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10003",
+         farmerId: "10003",
+         farmSize: 4,
+         cropType: ["Watermelon"],
+         comment: [],
+         images: ["assets/plants/crop4.jpg","assets/plants/crop5.jpg","assets/plants/crop3.jpg","assets/plants/crop4.jpg"],
+         location: " Old Ayaase",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10004",
+         farmerId: "10001",
+         farmSize: 11.0,
+         cropType: ["Cabbage"],
+         comment: [],
+         images: ["assets/plants/crop1.png","assets/plants/crop2.jpg","assets/plants/crop3.jpg","assets/plants/crop4.jpg"],
+         location: "Dunkyea",
+         description: "",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10005",
+         farmerId: "10006",
+         farmSize: 14.6,
+         cropType: ["Rice"],
+         comment: [],
+         images: ["assets/plants/crop7.jpg","assets/plants/crop1.jpg","assets/plants/crop3.jpg","assets/plants/crop4.jpg"],
+         location: "Manso",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10006",
+         farmerId: "10009",
+         farmSize: 3,
+         cropType: ["Green Pepper","Carrot"],
+         comment: [],
+         images: ["assets/plants/crop4.jpg","assets/plants/crop3.jpg","assets/plants/crop6.jpg","assets/plants/crop7.jpg"],
+         location: "Dada Mu",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10007",
+         farmerId: "10010",
+         farmSize: 7.6,
+         cropType: ["Carrot"],
+         comment: [],
+         images: ["assets/plants/crop4.jpg","assets/plants/crop2.jpg","assets/plants/crop3.jpg","assets/plants/crop5.jpg"],
+         location: "Akrokeri",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10008",
+         farmerId: "10011",
+         farmSize: 5,
+         cropType: ["Maize"],
+         comment: [],
+         images: ["assets/plants/crop6.jpg","assets/plants/crop2.jpg","assets/plants/crop3.jpg","assets/plants/crop1.png"],
+         location: "Ahensan",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10009",
+         farmerId: "10005",
+         farmSize: 9.2,
+         cropType: ["Cabbage","Green Pepper","Watermelon"],
+         comment: [],
+         images: ["assets/plants/crop1.png","assets/plants/crop2.jpg","assets/plants/crop3.jpg","assets/plants/crop1.png"],
+         location: "Ahensan",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10010",
+         farmerId: "10007",
+         farmSize: 2,
+         cropType: ["Carrot"],
+         comment: [],
+         images: ["assets/plants/crop4.jpg","assets/plants/crop2.jpg","assets/plants/crop3.jpg","assets/plants/crop1.png"],
+         location: "Ahensan",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     ),
+     Farms(
+         farmId: "F10011",
+         farmerId: "10005",
+         farmSize: 3,
+         cropType: ["Cabbage","Green Pepper","Watermelon"],
+         comment: [],
+         images: ["assets/plants/crop3.jpg","assets/plants/crop1.png","assets/plants/crop3.jpg","assets/plants/crop4.jpg"],
+         location: "Ahensan",
+         description: "The public is providing more than 1m per minute in global farm subsidies, much of which is driving the climate crisis and destruction of wildlife, according to a new report.",
+         farmState: [
+           {
+             'stamp':"20/02/21",
+             'state':"Land Clearing",
+             'input':"Cutlass, Herbicides"
+           },
+           {
+             'stamp':"03/03/21",
+             'state':"Planting"
+
+           },
+           {
+             'stamp':"14/04/21",
+             'state':"First Fertilizer",
+             'input':"N:P:K 15,15,15"
+           },
+           {
+             'stamp':"20/05/21",
+             'state':"Second Fertilizer",
+             'input':"Asasewura Fertilizer"
+           },
+           {
+             'stamp':"10/06/21",
+             'state':"Harvesting",
+             'input':"Combine Harvester"
+           }
+         ]
+     )
+   ];
  }
 }

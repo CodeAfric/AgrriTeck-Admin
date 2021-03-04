@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:agriteck_admin/model-data/data-models.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -75,40 +77,24 @@ class _DiseaseCardState extends State<DiseaseCard> {
               child: Text(
                 widget.diseases.name,
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: primaryDark),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: RichText(
-                textAlign: TextAlign.start,
-                text: TextSpan(
-                  style: TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                      color: Colors.black54,
-                      fontWeight: FontWeight.w600),
-                  children: <TextSpan>[
-                    widget.diseases.description.length > 250
-                        ? TextSpan(
-                        text:  widget.diseases
-                            .description
-                            .substring(0, 250) +
-                            "....")
-                        : TextSpan(
-                        text:  widget.diseases.description + "...."),
-                    TextSpan(
-                        text: " Read More",
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontWeight: FontWeight.bold,
-                            color: primary))
-                  ],
-                ),
+              child: Text( widget.diseases.description,
+                style: TextStyle(
+                    fontSize: 13,
+                    height: 1.5,
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w600),
+                maxLines : 5,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
+
           ],
         ),
       ),
