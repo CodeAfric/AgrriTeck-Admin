@@ -9,12 +9,12 @@ import 'package:provider/provider.dart';
 
 import '../Common-widget/section-title.dart';
 
-class FarmersSection extends StatefulWidget {
+class MarketPage extends StatefulWidget {
   @override
-  _FarmersSectionState createState() => _FarmersSectionState();
+  _MarketPageState createState() => _MarketPageState();
 }
 
-class _FarmersSectionState extends State<FarmersSection> {
+class _MarketPageState extends State<MarketPage> {
   void getUpdate(){
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       List farmers= Provider.of<AppProviders>(context, listen: false).farmerList;
@@ -39,7 +39,7 @@ class _FarmersSectionState extends State<FarmersSection> {
               children: [
                 SectionTitle(
                   color: primary,
-                  title: "Farmer List",
+                  title: "Farmer's Market",
                 ),
                 SizedBox(
                     width: width * 0.6,
@@ -50,8 +50,8 @@ class _FarmersSectionState extends State<FarmersSection> {
                           if(val.isNotEmpty){
                             search.forEach((element) {
                               if(element.name.toString().toLowerCase().contains(val.toLowerCase())||
-                              element.location.toString().toLowerCase().contains(val.toLowerCase())||
-                              element.specialized.toString().toLowerCase().contains(val.toLowerCase())){
+                                  element.location.toString().toLowerCase().contains(val.toLowerCase())||
+                                  element.specialized.toString().toLowerCase().contains(val.toLowerCase())){
                                 newData.add(element);
                               }
                             });
@@ -62,7 +62,7 @@ class _FarmersSectionState extends State<FarmersSection> {
 
                         });
                       },
-                      hint: "Search Farmer",
+                      hint: "Search Item",
                     )),
                 ResponsiveWidget(
                   tabletScreen: Padding(

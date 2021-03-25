@@ -9,7 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
-import '../section-title.dart';
+import '../Common-widget/section-title.dart';
 import 'disease-card.dart';
 
 class DiseasePage extends StatefulWidget {

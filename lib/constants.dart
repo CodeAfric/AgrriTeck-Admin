@@ -16,8 +16,8 @@ final kDefaultInputDecorationTheme = InputDecorationTheme(
 const kDefaultPadding = 20.0;
 
 final kDefaultShadow = BoxShadow(
-  offset: Offset(0, 50),
-  blurRadius: 50,
+  offset: Offset(0, 30),
+  blurRadius: 30,
   color: primaryDark.withOpacity(0.15),
 );
 

@@ -30,12 +30,9 @@ class _FarmsCardState extends State<FarmsCard> {
 
   @override
   void initState() {
-    getAddress();
     super.initState();
   }
-  getAddress()async{
 
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +58,8 @@ class _FarmsCardState extends State<FarmsCard> {
             isHover
                 ? kDefaultShadow
                 : BoxShadow(
-              offset: Offset(5, 10),
-              blurRadius: 20,
+              offset: Offset(0, 0),
+              blurRadius: 0,
               color: primary.withOpacity(.5),
             ),
           ],

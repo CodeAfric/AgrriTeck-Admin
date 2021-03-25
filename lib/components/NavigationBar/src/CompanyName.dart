@@ -20,8 +20,8 @@ class CompanyName extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            offset: Offset(5, 10),
-            blurRadius: 20,
+            offset: Offset(0, 0),
+            blurRadius: 0,
             color: primary.withOpacity(.5),
           ),
         ],

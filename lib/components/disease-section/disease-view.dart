@@ -93,13 +93,15 @@ class _DiseasesViewState extends State<DiseasesView> {
                             options: CarouselOptions(
                               viewportFraction: 0.8,
                               initialPage: 0,
+                              aspectRatio: 2,
                               enableInfiniteScroll: true,
-                              reverse: false,
-                              autoPlay: true,
+                              reverse: true,
+                              enlargeCenterPage: true,
+                              autoPlay: false,
                               autoPlayInterval: Duration(seconds: 3),
-                              autoPlayAnimationDuration: Duration(milliseconds: 800),
+                              autoPlayAnimationDuration:
+                              Duration(milliseconds: 800),
                               autoPlayCurve: Curves.fastOutSlowIn,
-                              enlargeCenterPage: false,
                             ),
                             items: widget.disease.images.map((item) => Center(
                               child: Image.asset(item,width: double.infinity,fit: BoxFit.fill,height:(ht-100)*.7 ,),
@@ -290,13 +292,15 @@ class _DiseasesViewState extends State<DiseasesView> {
                             options: CarouselOptions(
                               viewportFraction: 0.8,
                               initialPage: 0,
+                              aspectRatio: 2,
                               enableInfiniteScroll: true,
-                              reverse: false,
-                              autoPlay: true,
+                              reverse: true,
+                              enlargeCenterPage: true,
+                              autoPlay: false,
                               autoPlayInterval: Duration(seconds: 3),
-                              autoPlayAnimationDuration: Duration(milliseconds: 800),
+                              autoPlayAnimationDuration:
+                              Duration(milliseconds: 800),
                               autoPlayCurve: Curves.fastOutSlowIn,
-                              enlargeCenterPage: false,
                             ),
                             items: widget.disease.images.map((item) => Center(
                               child: Image.asset(item,width: double.infinity,fit: BoxFit.fill,height:(ht-100)*.7 ,),
