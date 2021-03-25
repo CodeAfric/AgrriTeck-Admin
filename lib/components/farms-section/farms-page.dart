@@ -41,10 +41,6 @@ class _FarmsPagePageState extends State<FarmsPage> {
         padding: EdgeInsets.only(top: 20, bottom: 5),
         child: Column(
           children: [
-            // SectionTitle(
-            //   color: primary,
-            //   title: "Farms Trucking",
-            // ),
             SizedBox(
                 width: width * 0.6,
                 child: SearchBar(

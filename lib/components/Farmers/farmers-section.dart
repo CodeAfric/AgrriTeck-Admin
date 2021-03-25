@@ -34,13 +34,9 @@ class _FarmersSectionState extends State<FarmersSection> {
           List farmerList = value.searchFarmer;
           List search = value.farmerList;
           return Container(
-            padding: EdgeInsets.only(top: 50, bottom: 5),
+            padding: EdgeInsets.only(top: 20, bottom: 5),
             child: Column(
               children: [
-                SectionTitle(
-                  color: primary,
-                  title: "Farmer List",
-                ),
                 SizedBox(
                     width: width * 0.6,
                     child: SearchBar(
