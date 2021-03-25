@@ -171,3 +171,39 @@ class Comments{
 
 }
 
+class Market{
+  String productName,measure,productId,timeStamp;
+  int quantity;
+  double price;
+  Map<String,dynamic> farmer;
+  List images;
+
+  Market(this.productName, this.measure, this.productId, this.timeStamp,
+      this.quantity, this.price, this.farmer, this.images);
+
+  Map<String, dynamic> toMap() {
+    var map = Map<String, dynamic>();
+    map['productName'] = productName;
+    map['measure'] = measure;
+    map['productId'] = productId;
+    map['timeStamp'] = timeStamp;
+    map['quantity'] = quantity;
+    map['price'] = price;
+    map['farmer'] = farmer;
+    map['images'] = images;
+    return map;
+  }
+  Market.fromMapObject(Map<String, dynamic> map) {
+    this.productName = map['productName'];
+    this.measure = map['measure'];
+    this.productId = map['productId'];
+    this.timeStamp = map['timeStamp'];
+    this.quantity = map['quantity'];
+    this.price=map['price'];
+    this.farmer = map['farmer'];
+    this.images = map['images'];
+
+  }
+
+}
+

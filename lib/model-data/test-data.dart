@@ -183,6 +183,21 @@ class ListGenerator {
     return data;
   }
 
+  static List<Market> marketData() {
+    List<Market> data = [
+     Market("Tomatoes", "Box", "P10001", "21st Mar,2021 - 12:12 Pm", 5, 600,
+         {
+           'name':"Kofi Appiah",
+           'farmerId':"F10001",
+           'Location':"Old Adokwai",
+           'phone':"+233248485308",
+           'gender':"Male",
+         },
+       []
+     )
+    ];
+    return data;
+  }
 
   static List<Farms> farmsData() {
     return [
