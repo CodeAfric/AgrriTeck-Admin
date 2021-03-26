@@ -35,16 +35,19 @@ class _SearchBarState extends State<SearchBar> {
         children: <Widget>[
           Expanded(
             child: TextField(
-              onChanged: widget.onChange,
+              onChanged: (value){
+
+              },
               decoration: InputDecoration(
                 hintText: widget.page==NavIcons.Farms?'Search a Farm':
-                widget.page==NavIcons.Farms?'Search for a Farm':
+                widget.page==NavIcons.Community?'Search for a Post':
                 widget.page==NavIcons.Users?'Search for a Farmer':
                 widget.page==NavIcons.Market?'Search for a Product':
                 widget.page==NavIcons.Diseases?'Search a Disease':
-                widget.page==NavIcons.Crops?'Search a Crop':
+                widget.page==NavIcons.Crops?'Search for a Crop':
                 widget.page==NavIcons.Vendors?'Search for a Vendor':
                 widget.page==NavIcons.Investors?'Search for an Investor':
+                widget.page==NavIcons.Complaints?'Search for a Complain':
                 widget.page==NavIcons.Groups?'Search for a Group':''
                 ,
                 hintStyle: TextStyle(
