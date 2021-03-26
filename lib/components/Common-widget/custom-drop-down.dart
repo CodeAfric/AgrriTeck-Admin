@@ -1,16 +1,19 @@
+import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:flutter/material.dart';
+import 'package:hovering/hovering.dart';
+
+import '../../home_screen.dart';
 
 class CustomDropDown extends StatelessWidget {
   final value;
   final List<String> itemsList;
   final Color dropdownColor;
   final Function(dynamic value) onChanged;
-  final String hint;
+
   const CustomDropDown({
     @required this.value,
     @required this.itemsList,
     this.dropdownColor,
-    @required this.hint,
     @required this.onChanged,
     Key key,
   }) : super(key: key);
@@ -22,20 +25,20 @@ class CustomDropDown extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
+          color: primaryDark,
         ),
         child: DropdownButtonHideUnderline(
           child: Padding(
             padding: const EdgeInsets.only(left: 14.0, right: 14),
             child: DropdownButton(
               isExpanded: true,
-              hint:Text(hint,style: TextStyle(fontWeight: FontWeight.w800),) ,
+              icon: null,
               dropdownColor: dropdownColor,
               value: value,
               items: itemsList
                   .map((String item) => DropdownMenuItem<String>(
                 value: item,
-                child: Text(item),
+                child: Text(item,style: TextStyle(color: Colors.white),),
               ))
                   .toList(),
               onChanged: (value) => onChanged(value),
@@ -46,3 +49,5 @@ class CustomDropDown extends StatelessWidget {
     );
   }
 }
+
+

@@ -13,6 +13,7 @@ class AppProviders with ChangeNotifier {
   ///one will hold all the community data(Questions Asked) and the other will hold filtered farms after a search
   List communityData,searchCommunity;
 
+  List marketData,searchProduct;
   void updateLogin(bool login) {
     isLoggedIn=login;
     notifyListeners();
@@ -58,6 +59,17 @@ class AppProviders with ChangeNotifier {
     searchCommunity=filteredData;
     notifyListeners();
   }
+
+  //-----------------------------------------------------------
+  ///this code help to update the two Community List
+  void updateMarket(List mainData) {
+    marketData=mainData;
+    notifyListeners();
+  }
+  void updateSearchMarket(List filteredData) {
+    searchProduct=filteredData;
+    notifyListeners();
+  }
   bool get userState => isLoggedIn;
   ///After updating the two different list of farmers, we get the data with these getters
   List get getFarmerList=>farmerList;
@@ -74,6 +86,11 @@ class AppProviders with ChangeNotifier {
   ///After updating the two different list of farms, we get the data with these getters
   List get getCommunityData=>communityData;
   List get getSearchCommunity=>searchCommunity;
+//-----------------------------------------------------------------------------------
+
+  ///After updating the two different list of farms, we get the data with these getters
+  List get getMarketData=>marketData;
+  List get getSearchProducts=>searchProduct;
 //-----------------------------------------------------------------------------------
 
 
