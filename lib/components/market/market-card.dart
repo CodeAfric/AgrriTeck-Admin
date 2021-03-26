@@ -41,6 +41,7 @@ class _MarketCardState extends State<MarketCard> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: 200),
         width: widget.width,
+        // height: widget.height,
         decoration: BoxDecoration(
           color: isHover ? Colors.white.withOpacity(0.8) : Colors.white,
           borderRadius: BorderRadius.all(

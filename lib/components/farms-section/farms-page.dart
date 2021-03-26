@@ -41,36 +41,6 @@ class _FarmsPagePageState extends State<FarmsPage> {
         padding: EdgeInsets.only(top: 20, bottom: 5),
         child: Column(
           children: [
-            SizedBox(
-                width: width * 0.6,
-                child: SearchBar(
-                  onChange: (val) {
-                    List<Farms> newData = [];
-                    setState(() {
-                      if (val.isNotEmpty) {
-                        search.forEach((element) {
-                          if (element.farmId
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(val.toLowerCase()) ||
-                              element.farmerId
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(val.toLowerCase()) ||
-                              element.location.toString().toLowerCase().contains(val.toLowerCase())) {
-                            newData.add(element);
-                          }
-                        });
-                        Provider.of<AppProviders>(context, listen: false)
-                            .updateSearchFarms(newData);
-                      } else {
-                        Provider.of<AppProviders>(context, listen: false)
-                            .updateSearchFarms(search);
-                      }
-                    });
-                  },
-                  hint: "Search Farm",
-                )),
             ResponsiveWidget(
               tabletScreen: Padding(
                 padding: const EdgeInsets.only(top: 50),
