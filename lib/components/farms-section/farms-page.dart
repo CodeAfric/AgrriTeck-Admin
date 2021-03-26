@@ -57,7 +57,10 @@ class _FarmsPagePageState extends State<FarmsPage> {
                                   .toString()
                                   .toLowerCase()
                                   .contains(val.toLowerCase()) ||
-                              element.location.toString().toLowerCase().contains(val.toLowerCase())) {
+                              element.location
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(val.toLowerCase())) {
                             newData.add(element);
                           }
                         });
@@ -85,7 +88,7 @@ class _FarmsPagePageState extends State<FarmsPage> {
                         index: index,
                         width: width * .38,
                         farms: farms[index],
-                        ht: 450,
+                        ht: 460,
                         press: () {
                           showMaterialModalBottomSheet(
                             context: context,
@@ -113,7 +116,7 @@ class _FarmsPagePageState extends State<FarmsPage> {
                         index: index,
                         width: 380,
                         farms: farms[index],
-                        ht: 450,
+                        ht: 460,
                         press: () {
                           showMaterialModalBottomSheet(
                             context: context,
