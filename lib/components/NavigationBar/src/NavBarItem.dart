@@ -3,147 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 
-class NavBarItem extends StatefulWidget {
-  final String icon;
-  final Function touched;
-  final bool active;
-  final String tex;
-  final bool isHorizontal;
-  NavBarItem(
-      {this.icon,
-      this.touched,
-      this.active,
-      this.tex,
-      @required this.isHorizontal});
-  @override
-  _NavBarItemState createState() => _NavBarItemState();
-}
-
-class _NavBarItemState extends State<NavBarItem> {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
-        onTap: () {
-          widget.touched();
-        },
-        splashColor: Colors.white,
-        hoverColor: Colors.white12,
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 3.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              widget.isHorizontal
-                  ? Container(
-                      height: 60.0,
-                      width: 80,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 5),
-                            child: Image.asset(
-                              widget.icon,
-                              color:
-                                  widget.active ? Colors.white : Colors.white54,
-                              width: 18.0,
-                              height: 18.0,
-                            ),
-                          ),
-                          widget.active
-                              ? Text(
-                                  widget.tex,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14),
-                                )
-                              : Text(
-                                  widget.tex,
-                                  style: TextStyle(
-                                      color: Colors.white60,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14),
-                                ),
-                          AnimatedContainer(
-                            duration: Duration(milliseconds: 475),
-                            height: 5.0,
-                            width: 100.0,
-                            decoration: BoxDecoration(
-                              color: widget.active
-                                  ? Colors.white
-                                  : Colors.transparent,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(10.0),
-                                bottomRight: Radius.circular(10.0),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  : Container(
-                      height: 50.0,
-                      width: 250,
-                      child: Row(
-                        children: [
-                          AnimatedContainer(
-                            duration: Duration(milliseconds: 475),
-                            height: 35.0,
-                            width: 5.0,
-                            decoration: BoxDecoration(
-                              color: widget.active
-                                  ? Colors.white
-                                  : Colors.transparent,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(10.0),
-                                bottomRight: Radius.circular(10.0),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 30.0),
-                            child: Image.asset(
-                              widget.icon,
-                              color:
-                                  widget.active ? Colors.white : Colors.white54,
-                              width: 25.0,
-                              height: 25.0,
-                            ),
-                          ),
-                          widget.active
-                              ? Padding(
-                                  padding: EdgeInsets.only(left: 30.0),
-                                  child: Text(
-                                    widget.tex,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18),
-                                  ))
-                              : Padding(
-                                  padding: EdgeInsets.only(left: 30.0),
-                                  child: Text(
-                                    widget.tex,
-                                    style: TextStyle(
-                                        color: Colors.white60,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18),
-                                  )),
-                        ],
-                      ),
-                    ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+import '../../../home_screen.dart';
 
 class NavBarButton extends StatefulWidget {
   final Function touched;
@@ -213,8 +73,109 @@ class _NavBarButtonState extends State<NavBarButton> {
           ),
         ),
       )
-
-
     );
+  }
+}
+class PopUpMenu extends StatefulWidget {
+  final Function(NavIcons value) onSelected;
+
+  PopUpMenu({this.onSelected});
+
+  @override
+  _PopUpMenuState createState() => _PopUpMenuState();
+}
+
+class _PopUpMenuState extends State<PopUpMenu> {
+  String selectedVal="Home";
+  @override
+  Widget build(BuildContext context) {
+    return PopupMenuButton<NavIcons>(
+        child: Material(
+            color: Colors.transparent,
+            child: HoverWidget(
+              hoverChild: Text(
+                selectedVal,
+                style: TextStyle(
+                    color: primaryDark,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "SF Pro Display",
+                    fontSize: 20),
+              ),
+              onHover: (event) {
+
+              },
+              child:Row(
+                children: [
+                  Icon(Icons.menu,color: primaryDark,size: 35,),
+                  SizedBox(width: 5,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        selectedVal,
+                        style: TextStyle(
+                            color: primaryDark,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "SF Pro Display",
+                            fontSize: 22),
+                      ),
+                      AnimatedContainer(
+                        duration: Duration(milliseconds: 475),
+                        height: 3.0,
+                        width: 25.0,
+                        decoration: BoxDecoration(
+                          color: primaryDark,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10.0),
+                            bottomRight: Radius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            )
+
+
+        ),
+        onSelected: widget.onSelected,
+        itemBuilder:(BuildContext context){
+          return <PopupMenuEntry<NavIcons>>[
+            PopupMenuItem(child: Text('Home'),
+              value: NavIcons.Home,
+            ),
+            PopupMenuItem(child: Text('Farmers'),
+              value: NavIcons.Users,
+            ),
+            PopupMenuItem(child: Text('Farms'),
+              value: NavIcons.Farms,
+            ),
+            PopupMenuItem(child: Text('Diseases'),
+              value: NavIcons.Diseases,
+            ),
+            PopupMenuItem(child: Text('Co-operations'),
+              value: NavIcons.Groups,
+            ),
+            PopupMenuItem(child: Text('Vendors'),
+              value: NavIcons.Vendors,
+            ),
+            PopupMenuItem(child: Text('Investors'),
+              value: NavIcons.Investors,
+            ),
+            PopupMenuItem(child: Text('Market'),
+              value: NavIcons.Market,
+            ),
+            PopupMenuItem(child: Text('Crops'),
+              value: NavIcons.Crops,
+            ),
+            PopupMenuItem(child: Text('Community'),
+              value: NavIcons.Community,
+            ),
+            PopupMenuItem(child: Text('Complaints'),
+              value: NavIcons.Complaints,
+            )
+          ];
+        });
   }
 }

@@ -36,7 +36,6 @@ class _FarmsCardState extends State<FarmsCard> {
 
   @override
   Widget build(BuildContext context) {
-
     return InkWell(
       onTap: widget.press,
       onHover: (value) {
