@@ -141,6 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget deskTop(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
+    generateData();
     return Scaffold(
       body: Stack(
         children: [
@@ -173,8 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? SizedBox(
                             width: _width * 0.5,
                             child: SearchBar(
-                              onChange: (val) {},
-                              hint: "Search Item",
+                              page: navIco,
                             ),
                           )
                         : Container(
@@ -340,6 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         onPressed: () {
                           setState(() {
+                            generateData();
                             isSearching = isSearching ? false : true;
                           });
                         }),
@@ -389,6 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget tablet(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
+    generateData();
     return Scaffold(
       body: Stack(
         children: [
@@ -421,8 +423,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       width: _width * 0.45,
                       child: SearchBar(
-                        onChange: (val) {},
-                        hint: "Search Item",
+                        page: navIco,
                       ),
                     ),
                     Padding(

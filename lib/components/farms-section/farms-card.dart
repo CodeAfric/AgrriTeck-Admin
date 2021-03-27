@@ -53,7 +53,6 @@ class _FarmsCardState extends State<FarmsCard> {
         duration: Duration(milliseconds: 200),
         width: widget.width,
         height: widget.ht,
-        padding: EdgeInsets.only(bottom: 15),
         decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color: primaryLight, width: 0.5),

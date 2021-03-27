@@ -42,39 +42,6 @@ class _MarketPageState extends State<MarketPage> {
         padding: EdgeInsets.only(top: 20, bottom: 5),
         child: Column(
           children: [
-            SizedBox(
-                width: width * 0.6,
-                child: SearchBar(
-                  onChange: (val) {
-                    List<Farmers> newData = [];
-                    setState(() {
-                      if (val.isNotEmpty) {
-                        search.forEach((element) {
-                          if (element.name
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(val.toLowerCase()) ||
-                              element.location
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(val.toLowerCase()) ||
-                              element.specialized
-                                  .toString()
-                                  .toLowerCase()
-                                  .contains(val.toLowerCase())) {
-                            newData.add(element);
-                          }
-                        });
-                        Provider.of<AppProviders>(context, listen: false)
-                            .updateSearchMarket(newData);
-                      } else {
-                        Provider.of<AppProviders>(context, listen: false)
-                            .updateSearchMarket(search);
-                      }
-                    });
-                  },
-                  hint: "Search Item",
-                )),
             ResponsiveWidget(
               tabletScreen: Padding(
                 padding: const EdgeInsets.only(top: 50),
@@ -106,15 +73,15 @@ class _MarketPageState extends State<MarketPage> {
               desktopScreen: Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Wrap(
-                  spacing: 25,
-                  runSpacing: 45,
+                  spacing: 20,
+                  runSpacing: 40,
                   alignment: WrapAlignment.start,
                   crossAxisAlignment: WrapCrossAlignment.start,
                   children: List.generate(
                       products.length,
                       (index) => MarketCard(
                           height: 310,
-                          width: 330,
+                          width: 320,
                           imageSize: 90,
                           product: products[index],
                           press: () {

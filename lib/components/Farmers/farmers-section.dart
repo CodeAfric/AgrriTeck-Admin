@@ -1,13 +1,9 @@
 import 'package:agriteck_admin/components/Common-widget/responsive_widget.dart';
-import 'package:agriteck_admin/components/Common-widget/search-bar.dart';
 import 'package:agriteck_admin/components/Farmers/farmers-card.dart';
-import 'package:agriteck_admin/model-data/data-models.dart';
 import 'package:agriteck_admin/other-classes/providers.dart';
-import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../Common-widget/section-title.dart';
 
 class FarmersSection extends StatefulWidget {
   @override
@@ -37,29 +33,6 @@ class _FarmersSectionState extends State<FarmersSection> {
             padding: EdgeInsets.only(top: 20, bottom: 5),
             child: Column(
               children: [
-                SizedBox(
-                    width: width * 0.6,
-                    child: SearchBar(
-                      onChange: (val) {
-                        List<Farmers> newData=[];
-                        setState(() {
-                          if(val.isNotEmpty){
-                            search.forEach((element) {
-                              if(element.name.toString().toLowerCase().contains(val.toLowerCase())||
-                              element.location.toString().toLowerCase().contains(val.toLowerCase())||
-                              element.specialized.toString().toLowerCase().contains(val.toLowerCase())){
-                                newData.add(element);
-                              }
-                            });
-                            Provider.of<AppProviders>(context, listen: false).updateSearchFarmers(newData);
-                          }else{
-                            Provider.of<AppProviders>(context, listen: false).updateSearchFarmers(search);
-                          }
-
-                        });
-                      },
-                      hint: "Search Farmer",
-                    )),
                 ResponsiveWidget(
                   tabletScreen: Padding(
                     padding: const EdgeInsets.only(top: 50),

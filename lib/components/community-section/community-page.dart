@@ -65,31 +65,7 @@ class _CommunityPageState extends State<CommunityPage> {
                 ),
               ],
             ),
-            SizedBox(
-                width: width * 0.6,
-                child: SearchBar(
-                  onChange: (val) {
-                    List<Diseases> newData = [];
-                    setState(() {
-                      if (val.isNotEmpty) {
-                        search.forEach((element) {
-                          if (element.name
-                              .toString()
-                              .toLowerCase()
-                              .contains(val.toLowerCase())) {
-                            newData.add(element);
-                          }
-                        });
-                        Provider.of<AppProviders>(context, listen: false)
-                            .updateSearchDisease(newData);
-                      } else {
-                        Provider.of<AppProviders>(context, listen: false)
-                            .updateSearchDisease(search);
-                      }
-                    });
-                  },
-                  hint: "Search Post",
-                )),
+
             ResponsiveWidget(
               tabletScreen: Padding(
                 padding: const EdgeInsets.only(top: 50,bottom: 20),
