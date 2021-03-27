@@ -1,3 +1,4 @@
+import 'package:agriteck_admin/home_screen.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -5,7 +6,8 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 class SearchBar extends StatefulWidget {
   final Function(String value) onChange;
   final String hint;
-  const SearchBar({Key key, this.onChange,this.hint}) : super(key: key);
+  final NavIcons page;
+  const SearchBar({Key key, this.onChange,this.hint,this.page}) : super(key: key);
   @override
   _SearchBarState createState() => _SearchBarState();
 }
@@ -15,11 +17,9 @@ class _SearchBarState extends State<SearchBar> {
   Widget build(BuildContext context) {
     return  Container(
       alignment: Alignment.center,
-      margin: EdgeInsets.only(
-          left: 20,right: 20,top: 35),
       padding: EdgeInsets.symmetric(
           horizontal: 20),
-      height: 54,
+      height: 40,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -35,9 +35,21 @@ class _SearchBarState extends State<SearchBar> {
         children: <Widget>[
           Expanded(
             child: TextField(
-              onChanged: widget.onChange,
+              onChanged: (value){
+
+              },
               decoration: InputDecoration(
-                hintText: widget.hint,
+                hintText: widget.page==NavIcons.Farms?'Search a Farm':
+                widget.page==NavIcons.Community?'Search for a Post':
+                widget.page==NavIcons.Users?'Search for a Farmer':
+                widget.page==NavIcons.Market?'Search for a Product':
+                widget.page==NavIcons.Diseases?'Search a Disease':
+                widget.page==NavIcons.Crops?'Search for a Crop':
+                widget.page==NavIcons.Vendors?'Search for a Vendor':
+                widget.page==NavIcons.Investors?'Search for an Investor':
+                widget.page==NavIcons.Complaints?'Search for a Complain':
+                widget.page==NavIcons.Groups?'Search for a Group':''
+                ,
                 hintStyle: TextStyle(
                   color: primary.withOpacity(0.7),
                   fontWeight: FontWeight.bold
@@ -48,12 +60,7 @@ class _SearchBarState extends State<SearchBar> {
               ),
             ),
           ),
-          Icon(FontAwesome.search,color: primary.withOpacity(0.7),size: 25,)
-          // SvgPicture.asset(
-          //   "assets/icons/search.svg",
-          //   color: primaryDark,
-          //   width: 25,
-          //   height: 25,),
+          Icon(FontAwesome.search,color: primary.withOpacity(0.7),size: 20,)
         ],
       ),
     );

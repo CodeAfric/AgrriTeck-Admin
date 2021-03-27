@@ -41,10 +41,6 @@ class _FarmsPagePageState extends State<FarmsPage> {
         padding: EdgeInsets.only(top: 20, bottom: 5),
         child: Column(
           children: [
-            // SectionTitle(
-            //   color: primary,
-            //   title: "Farms Trucking",
-            // ),
             SizedBox(
                 width: width * 0.6,
                 child: SearchBar(
@@ -61,7 +57,10 @@ class _FarmsPagePageState extends State<FarmsPage> {
                                   .toString()
                                   .toLowerCase()
                                   .contains(val.toLowerCase()) ||
-                              element.location.toString().toLowerCase().contains(val.toLowerCase())) {
+                              element.location
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains(val.toLowerCase())) {
                             newData.add(element);
                           }
                         });
@@ -89,7 +88,7 @@ class _FarmsPagePageState extends State<FarmsPage> {
                         index: index,
                         width: width * .38,
                         farms: farms[index],
-                        ht: 450,
+                        ht: 460,
                         press: () {
                           showMaterialModalBottomSheet(
                             context: context,
@@ -117,7 +116,7 @@ class _FarmsPagePageState extends State<FarmsPage> {
                         index: index,
                         width: 380,
                         farms: farms[index],
-                        ht: 450,
+                        ht: 460,
                         press: () {
                           showMaterialModalBottomSheet(
                             context: context,

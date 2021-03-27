@@ -1,11 +1,10 @@
 import 'data-models.dart';
 
 class ListGenerator {
-
   static List<Diseases> diseasesData() {
     List<Diseases> data = [
       Diseases(
-        diseaseId: "D10001",
+          diseaseId: "D10001",
           name: "Powdery Mildew",
           causes: [],
           treatment: [],
@@ -17,7 +16,7 @@ class ListGenerator {
           description:
               "Powdery mildew leaves a telltale white dusty coating on leaves, stems and flowers. Caused by a fungus, it affects a number of plants, including lilacs, apples, grapes, cucumbers, peas, phlox, daisies and roses."),
       Diseases(
-        diseaseId: "D10002",
+          diseaseId: "D10002",
           causes: [],
           treatment: [],
           signs: [],
@@ -183,6 +182,275 @@ class ListGenerator {
     return data;
   }
 
+  static List<Market> marketData() {
+    List<Market> data = [
+      Market(
+          productName: "Fresh Tomatoes",
+          measure: "Box",
+          productId: "P10001",
+          timeStamp: "21st Mar,2021 - 12:12 Pm",
+          quantity: 5,
+          price: 600,
+          productDescription:
+              "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/tomatoes1.jpg",
+            "assets/images/tomatoes2.jpg",
+            "assets/images/tomatoes3.jpg"
+          ]),
+      Market(
+          productName: "Pepper For Sales",
+          measure: "Basket",
+          productId: "P10001",
+          timeStamp: "21st Mar,2021 - 12:12 Pm",
+          quantity: 1,
+          price: 50,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/cabbage3.jpg",
+            "assets/images/cabbage1.jpg",
+            "assets/images/cabbage2.jpg"
+          ]),
+      Market(
+          productName: "Fresh Tomatoes",
+          measure: "Box",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 5,
+          price: 600,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/tomatoes2.jpg",
+            "assets/images/tomatoes1.jpg",
+            "assets/images/tomatoes3.jpg"
+          ]),
+      Market(
+          productName: "Fresh Tomatoes",
+          measure: "Box",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 3,
+          price: 200,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/tomatoes1.jpg",
+            "assets/images/tomatoes2.jpg",
+            "assets/images/tomatoes3.jpg"
+          ]),
+      Market(
+          productName: "Cabbages",
+          measure: "Bags",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 5,
+          price: 600,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/cabbage1.jpg",
+            "assets/images/cabbage2.jpg",
+            "assets/images/cabbage3.jpg"
+          ]),
+      Market(
+          productName: "Healthy Pepper",
+          measure: "Basket",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 3,
+          price: 100,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/pepper1.jpg",
+            "assets/images/pepper2.jpg",
+            "assets/images/pepper3.jpg"
+          ]),
+      Market(
+          productName: "Fresh Tomatoes",
+          measure: "Box",
+          productId: "P10001",
+          timeStamp: "21st Mar,2021 - 12:12 Pm",
+          quantity: 5,
+          price: 600,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/tomatoes1.jpg",
+            "assets/images/tomatoes2.jpg",
+            "assets/images/tomatoes3.jpg"
+          ]),
+      Market(
+          productName: "Pepper For Sales",
+          measure: "Basket",
+          productId: "P10001",
+          timeStamp: "21st Mar,2021 - 12:12 Pm",
+          quantity: 1,
+          price: 50,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/cabbage3.jpg",
+            "assets/images/cabbage1.jpg",
+            "assets/images/cabbage2.jpg"
+          ]),
+      Market(
+          productName: "Fresh Tomatoes",
+          measure: "Box",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 5,
+          price: 600,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/tomatoes2.jpg",
+            "assets/images/tomatoes1.jpg",
+            "assets/images/tomatoes3.jpg"
+          ]),
+      Market(
+          productName: "Fresh Tomatoes",
+          measure: "Box",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 3,
+          price: 200,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/tomatoes1.jpg",
+            "assets/images/tomatoes2.jpg",
+            "assets/images/tomatoes3.jpg"
+          ]),
+      Market(
+          productName: "Cabbages",
+          measure: "Bags",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 5,
+          price: 600,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/cabbage1.jpg",
+            "assets/images/cabbage2.jpg",
+            "assets/images/cabbage3.jpg"
+          ]),
+      Market(
+          productName: "Healthy Pepper",
+          measure: "Basket",
+          productId: "P10001",
+          timeStamp: "21st Mar, 2021 - 12:12 Pm",
+          quantity: 3,
+          price: 100,
+          productDescription:
+          "Cabbage (comprising several cultivars of Brassica oleracea) is a leafy green, red (purple), or white (pale green) biennial plant grown as an annual vegetable crop for its dense-leaved heads. It is descended from the wild cabbage (B. oleracea var. oleracea), and belongs to the  or brassicas, meaning it is closely related to broccoli and cauliflower (var. botrytis); Brussels sprouts (var. gemmifera); and Savoy cabbage (var. sabauda).Cabbage weights generally range from 500 to 1,000 grams (1 to 2 lb). Smooth-leafed, firm-headed green cabbages are the most common, with smooth-leafed purple cabbages and crinkle-leafed savoy cabbages of both colours being rarer. Under conditions of long sunny days, such as those found at high northern latitudes in summer, cabbages can grow quite large. As of 2012, the heaviest cabbage was 62.71 kilograms (138.25 lb). Cabbage heads are generally picked during the first year of the plant's life cycle, but plants intended for seed are allowed to grow a second year and must be kept separate from other cole crops to prevent cross-pollination. Cabbage is prone to several nutrient deficiencies, as well as to multiple pests, and bacterial and fungal diseases.Cabbage was most likely domesticated somewhere in Europe before 1000 BC, although savoys were not developed until the 16th century AD. By the Middle Ages, cabbage had become a prominent part of European cuisine. They can be prepared many different ways for eating; they can be pickled, fermented (for dishes such as sauerkraut), steamed, stewed, sautéed, braised, or eaten raw. Cabbage is a good source of vitamin K, vitamin C and dietary fiber. World production of cabbage and other brassicas for 2018 was 69 million tonnes, with China accounting for 48% of the total.",
+          farmer: {
+            'name': "Kofi Appiah",
+            'farmerId': "F10001",
+            'Location': "Old Adokwai",
+            'phone': "+233248485308",
+            'gender': "Male",
+            'img': "assets/images/farmer1.jpg",
+          },
+          images: [
+            "assets/images/pepper1.jpg",
+            "assets/images/pepper2.jpg",
+            "assets/images/pepper3.jpg"
+          ])
+    ];
+    return data;
+  }
 
   static List<Farms> farmsData() {
     return [
@@ -604,176 +872,175 @@ class ListGenerator {
   static List<Community> communityData() {
     return [
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Cabbage",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Cabbage",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
       ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Beans",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-        ),
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Beans",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+      ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Cassava",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-          ),
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Cassava",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+      ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Cocoa",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-          ),
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Cocoa",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+      ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Cabbage",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-          ),
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Cabbage",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+      ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Perper",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-          ),
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Perper",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+      ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Tomatoes",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-          ),
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Tomatoes",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+      ),
       Community(
-          userImage: "assets/images/farmer1.jpg",
-          images: [
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop2.jpg",
-            "assets/images/DSC_0194-e1399462629842.jpg",
-            "assets/plants/crop1.png"
-          ],
-          relatedCrop: "Cabbage",
-          name: "Kofi Nti",
-          location: "Kwaku Kurom",
-          occupation: "Farmer",
-          question: "What is wrong with my plants?",
-          description:
-              "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
-          date: "10th March 2021",
-  //         comments: [
-  //           {
-  //           'id': "CM10001",
-  //           'name': "Isaac Boateng",
-  //           'message':
-  //           "This disease is called brigting. please go to the disease list to read more abou it",
-  //           'timeStamp': "10th March,2021 @ 10:15 AM",
-  //           'senderId': "FM10002",
-  //           'location': "Old Ayaase",
-  //           'occupation': "Farmer",
-  //           'senderImage': "assets/images/farmer6.jpg",
-  //           },
-  //           {
-  //             'id': "CM10002",
-  //             'name': "Frimpong Nyamaah",
-  //             'message':
-  //                 "This disease is called brigting. please go to the disease list to read more abou it",
-  //             'timeStamp': "11th March,2021 @ 02:15 PM",
-  //             'senderId': "FM10003",
-  //             'location': "Dompoasi",
-  //             'occupation': "Investor",
-  //             'senderImage': "assets/images/farmer4.jpg",
-  // },
-  //           {
-  //                     'id': "CM10003",
-  //                     'name': "Frank Castle",
-  //                     'message':
-  //                         "This disease is called brigting. please go to the disease list to read more abou it",
-  //                     'timeStamp': "18th March,2021 @ 09:15 AM",
-  //                     'senderId': "FM10005",
-  //                     'location': "Old Akrofuom",
-  //                     'occupation': "Farmer",
-  //                     'senderImage': "assets/images/farmer1.jpg",
-  //         }
-  //         ]
+        userImage: "assets/images/farmer1.jpg",
+        images: [
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop2.jpg",
+          "assets/images/DSC_0194-e1399462629842.jpg",
+          "assets/plants/crop1.png"
+        ],
+        relatedCrop: "Cabbage",
+        name: "Kofi Nti",
+        location: "Kwaku Kurom",
+        occupation: "Farmer",
+        question: "What is wrong with my plants?",
+        description:
+            "My Cabbage Leaves has turn yellowish at matured stage as seen from the picture. I would like to find out what is happening to the plants.",
+        date: "10th March 2021",
+        //         comments: [
+        //           {
+        //           'id': "CM10001",
+        //           'name': "Isaac Boateng",
+        //           'message':
+        //           "This disease is called brigting. please go to the disease list to read more abou it",
+        //           'timeStamp': "10th March,2021 @ 10:15 AM",
+        //           'senderId': "FM10002",
+        //           'location': "Old Ayaase",
+        //           'occupation': "Farmer",
+        //           'senderImage': "assets/images/farmer6.jpg",
+        //           },
+        //           {
+        //             'id': "CM10002",
+        //             'name': "Frimpong Nyamaah",
+        //             'message':
+        //                 "This disease is called brigting. please go to the disease list to read more abou it",
+        //             'timeStamp': "11th March,2021 @ 02:15 PM",
+        //             'senderId': "FM10003",
+        //             'location': "Dompoasi",
+        //             'occupation': "Investor",
+        //             'senderImage': "assets/images/farmer4.jpg",
+        // },
+        //           {
+        //                     'id': "CM10003",
+        //                     'name': "Frank Castle",
+        //                     'message':
+        //                         "This disease is called brigting. please go to the disease list to read more abou it",
+        //                     'timeStamp': "18th March,2021 @ 09:15 AM",
+        //                     'senderId': "FM10005",
+        //                     'location': "Old Akrofuom",
+        //                     'occupation': "Farmer",
+        //                     'senderImage': "assets/images/farmer1.jpg",
+        //         }
+        //         ]
       )
     ];
   }

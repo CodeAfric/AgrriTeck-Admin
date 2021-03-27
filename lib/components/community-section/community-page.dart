@@ -44,15 +44,11 @@ class _CommunityPageState extends State<CommunityPage> {
       List community = value.searchCommunity;
       List search = value.communityData;
       return Container(
-          padding: EdgeInsets.only(top: 50, bottom: 5),
+          padding: EdgeInsets.only(top: 20, bottom: 5),
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SectionTitle(
-                  color: primary,
-                  title: "Community",
-                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: SizedBox(

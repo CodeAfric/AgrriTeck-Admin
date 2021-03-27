@@ -37,7 +37,7 @@ class _DiseasesViewState extends State<DiseasesView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding: const EdgeInsets.only(right: 15,top: 15,left: 15),
                     child: SizedBox(
                       width: 150,
                       child: RoundedButton(
@@ -53,7 +53,7 @@ class _DiseasesViewState extends State<DiseasesView> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(18.0),
+                    padding: const EdgeInsets.only(top: 15,right: 15),
                     child: Tooltip(
                       message: "Close Window",
                       child: IconButton(
@@ -63,7 +63,7 @@ class _DiseasesViewState extends State<DiseasesView> {
                           icon: Icon(
                             FontAwesome.close,
                             color: Colors.redAccent,
-                            size: 35,
+                            size: 25,
                           ),
                           onPressed: () {
                             Navigator.of(context).pop();
@@ -72,142 +72,135 @@ class _DiseasesViewState extends State<DiseasesView> {
                   )
                 ],
               ),
-              Center(
-                child:  Container(
-                  height: ht-150,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+              Expanded(
+                flex: 1,
+                child: SingleChildScrollView(
+                  child: Container(
                     color: Colors.white,
-                    boxShadow: [kDefaultCardShadow],
-                  ),
-                  child: SingleChildScrollView(
-                    child: Container(
-                      color: Colors.white,
-                      margin: EdgeInsets.symmetric(horizontal: 20,),
-                      width: double.infinity,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CarouselSlider(
-                            options: CarouselOptions(
-                              viewportFraction: 0.8,
-                              initialPage: 0,
-                              aspectRatio: 2,
-                              enableInfiniteScroll: true,
-                              reverse: true,
-                              enlargeCenterPage: true,
-                              autoPlay: false,
-                              autoPlayInterval: Duration(seconds: 3),
-                              autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                            ),
-                            items: widget.disease.images.map((item) => Center(
-                              child: Image.asset(item,width: double.infinity,fit: BoxFit.fill,height:(ht-100)*.7 ,),
-                            )).toList(),
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CarouselSlider(
+                          options: CarouselOptions(
+                            viewportFraction: 0.8,
+                            initialPage: 0,
+                            aspectRatio: 2,
+                            enableInfiniteScroll: true,
+                            reverse: true,
+                            enlargeCenterPage: true,
+                            autoPlay: false,
+                            autoPlayInterval: Duration(seconds: 3),
+                            autoPlayAnimationDuration:
+                            Duration(milliseconds: 800),
+                            autoPlayCurve: Curves.fastOutSlowIn,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              widget.disease.name,
+                          items: widget.disease.images.map((item) => Center(
+                            child: Image.asset(item,width: double.infinity,fit: BoxFit.fill,height:(ht-100)*.7 ,),
+                          )).toList(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            widget.disease.name,
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: primaryDark),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RichText(
+                            textAlign: TextAlign.start,
+                            text: TextSpan(
                               style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: primaryDark),
+                                  fontSize: 14,
+                                  height: 1.5,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w700),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text:  widget.disease.description ),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RichText(
-                              textAlign: TextAlign.start,
-                              text: TextSpan(
-                                style: TextStyle(
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RichText(
+                            textAlign: TextAlign.start,
+                            text: TextSpan(
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  height: 1.5,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w700),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text:  'Causes of Disease:\n',style:  TextStyle(
                                     fontSize: 14,
                                     height: 1.5,
-                                    color: Colors.black54,
-                                    fontWeight: FontWeight.w700),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text:  widget.disease.description ),
-                                ],
-                              ),
+                                    color: primaryDark,
+                                    fontWeight: FontWeight.bold) ),
+                                TextSpan(
+                                    text:  widget.disease.description ),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RichText(
-                              textAlign: TextAlign.start,
-                              text: TextSpan(
-                                style: TextStyle(
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RichText(
+                            textAlign: TextAlign.start,
+                            text: TextSpan(
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  height: 1.5,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w700),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text:  'Signs of Disease:\n',style:  TextStyle(
                                     fontSize: 14,
                                     height: 1.5,
-                                    color: Colors.black54,
-                                    fontWeight: FontWeight.w700),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text:  'Causes of Disease:\n',style:  TextStyle(
-                                      fontSize: 14,
-                                      height: 1.5,
-                                      color: primaryDark,
-                                      fontWeight: FontWeight.bold) ),
-                                  TextSpan(
-                                      text:  widget.disease.description ),
-                                ],
-                              ),
+                                    color: primaryDark,
+                                    fontWeight: FontWeight.bold) ),
+                                TextSpan(
+                                    text:  widget.disease.description ),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RichText(
-                              textAlign: TextAlign.start,
-                              text: TextSpan(
-                                style: TextStyle(
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RichText(
+                            textAlign: TextAlign.start,
+                            text: TextSpan(
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  height: 1.5,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.w700),
+                              children: <TextSpan>[
+                                TextSpan(
+                                    text:  'Preventive Measures:\n',style:  TextStyle(
                                     fontSize: 14,
                                     height: 1.5,
-                                    color: Colors.black54,
-                                    fontWeight: FontWeight.w700),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text:  'Signs of Disease:\n',style:  TextStyle(
-                                      fontSize: 14,
-                                      height: 1.5,
-                                      color: primaryDark,
-                                      fontWeight: FontWeight.bold) ),
-                                  TextSpan(
-                                      text:  widget.disease.description ),
-                                ],
-                              ),
+                                    color: primaryDark,
+                                    fontWeight: FontWeight.bold) ),
+                                TextSpan(
+                                    text:  widget.disease.description ),
+                              ],
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: RichText(
-                              textAlign: TextAlign.start,
-                              text: TextSpan(
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    height: 1.5,
-                                    color: Colors.black54,
-                                    fontWeight: FontWeight.w700),
-                                children: <TextSpan>[
-                                  TextSpan(
-                                      text:  'Preventive Measures:\n',style:  TextStyle(
-                                      fontSize: 14,
-                                      height: 1.5,
-                                      color: primaryDark,
-                                      fontWeight: FontWeight.bold) ),
-                                  TextSpan(
-                                      text:  widget.disease.description ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                        SizedBox(height: 25,)
+                      ],
                     ),
                   ),
-                )
+                ),
               )
             ],
           ),
@@ -219,8 +212,9 @@ class _DiseasesViewState extends State<DiseasesView> {
         color: Colors.white.withOpacity(0.9),
         child: Center(
           child: Container(
+            width: double.infinity,
+            height: double.infinity,
             margin: EdgeInsets.symmetric(horizontal: 250,vertical: 10),
-            padding: EdgeInsets.only(bottom: 15),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -253,7 +247,7 @@ class _DiseasesViewState extends State<DiseasesView> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(18.0),
+                      padding: const EdgeInsets.only(right: 15,top: 15),
                       child: Tooltip(
                         message: "Close Window",
                         child: IconButton(
@@ -263,7 +257,7 @@ class _DiseasesViewState extends State<DiseasesView> {
                             icon: Icon(
                               FontAwesome.close,
                               color: Colors.redAccent,
-                              size: 35,
+                              size: 25,
                             ),
                             onPressed: () {
                               Navigator.of(context).pop();
@@ -272,17 +266,12 @@ class _DiseasesViewState extends State<DiseasesView> {
                     )
                   ],
                 ),
-                Container(
-                  height: ht-118,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
-                    boxShadow: [kDefaultCardShadow],
-                  ),
+                Expanded(
+                  flex: 1,
                   child: SingleChildScrollView(
+                    physics: AlwaysScrollableScrollPhysics(),
                     child: Container(
                       color: Colors.white,
-                      margin: EdgeInsets.symmetric(horizontal: 20),
                       width: double.infinity,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -306,8 +295,6 @@ class _DiseasesViewState extends State<DiseasesView> {
                               child: Image.asset(item,width: double.infinity,fit: BoxFit.fill,height:(ht-100)*.7 ,),
                             )).toList(),
                           ),
-
-
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text(
@@ -404,6 +391,7 @@ class _DiseasesViewState extends State<DiseasesView> {
                               ),
                             ),
                           ),
+                          SizedBox(height: 25,)
                         ],
                       ),
                     ),
