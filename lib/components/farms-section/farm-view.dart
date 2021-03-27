@@ -978,7 +978,7 @@ class _ViewFarmState extends State<ViewFarm> {
             child: Text(
               date != null ? date : '',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black54,
                   fontSize: 16),
             ),
@@ -987,7 +987,7 @@ class _ViewFarmState extends State<ViewFarm> {
             width: 150,
             child: Text(activity != null ? activity : '',
                 style: TextStyle(
-                    fontWeight: FontWeight.normal,
+                    fontWeight: FontWeight.w600,
                     color: Colors.black54,
                     fontSize: 16)),
           ),
@@ -996,7 +996,7 @@ class _ViewFarmState extends State<ViewFarm> {
             child: Text(
               input != null ? input : '',
               style: TextStyle(
-                  fontWeight: FontWeight.normal,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black54,
                   fontSize: 16),
             ),
