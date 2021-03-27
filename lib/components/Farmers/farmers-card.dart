@@ -143,9 +143,7 @@ class _FarmerCardState extends State<FarmerCard> {
               child: Text(
                 lab + ' :',
                 style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: Colors.grey.shade700,
-                    fontSize: 14),
+                    fontWeight: FontWeight.w500, color: primary, fontSize: 14),
                 overflow: TextOverflow.clip,
                 softWrap: true,
               )),
