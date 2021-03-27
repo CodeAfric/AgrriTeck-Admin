@@ -31,7 +31,9 @@ class _FarmerCardState extends State<FarmerCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.press,
+      onTap: () {
+        print('sdsd');
+      },
       hoverColor: Colors.transparent,
       onHover: (value) {
         setState(() {
@@ -43,27 +45,36 @@ class _FarmerCardState extends State<FarmerCard> {
         padding: EdgeInsets.symmetric(horizontal: 10),
         width: widget.width,
         decoration: BoxDecoration(
-          color: isHover
-              ? primaryLight.withOpacity(0.7)
-              : primaryLight.withOpacity(0.3),
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [if (isHover) kDefaultCardShadow],
-        ),
+            border: Border.all(color: primaryLight, width: 0.5),
+            // color: isHover ? primaryLight.withOpacity(0.7) : Colors.white,
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              isHover ? kDefaultCardHoverShadow : kDefaultCardShadow,
+            ]),
         child: Column(
           children: [
             Transform.translate(
               offset: Offset(0, -40),
               child: AnimatedContainer(
                 duration: duration,
-                height: 90,
-                width: widget.imageSize,
+                padding: EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 7),
-                  boxShadow: [if (!isHover) kDefaultCardShadow],
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(widget.farmers.img),
+                    shape: BoxShape.circle,
+                    border: Border.all(color: primaryLight, width: 0.7),
+                    color: Colors.white),
+                child: AnimatedContainer(
+                  duration: duration,
+                  height: 100,
+                  width: widget.imageSize,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: primaryLight, width: 0.5),
+                    boxShadow: [if (!isHover) kDefaultCardShadow],
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(widget.farmers.img),
+                    ),
                   ),
                 ),
               ),
@@ -73,16 +84,36 @@ class _FarmerCardState extends State<FarmerCard> {
                 child: Container(
                   child: Column(
                     children: [
-                      itemRow(context, 'Name', widget.farmers.name),
-                      itemRow(context, 'Age',
-                          widget.farmers.age.toString() + ' Years'),
-                      itemRow(context, 'Location', widget.farmers.location),
                       itemRow(
-                          context, 'Speciality', widget.farmers.specialized),
-                      itemRow(context, 'NO. Plot',
-                          widget.farmers.numFarms.toString()),
-                      itemRow(context, 'Total Farm Size',
-                          widget.farmers.farmSize.toString() + ' Acr'),
+                        context,
+                        'Name',
+                        widget.farmers.name,
+                      ),
+                      itemRow(
+                        context,
+                        'Age',
+                        widget.farmers.age.toString() + ' Years',
+                      ),
+                      itemRow(
+                        context,
+                        'Location',
+                        widget.farmers.location,
+                      ),
+                      itemRow(
+                        context,
+                        'Speciality',
+                        widget.farmers.specialized,
+                      ),
+                      itemRow(
+                        context,
+                        'NO. Plot',
+                        widget.farmers.numFarms.toString(),
+                      ),
+                      itemRow(
+                        context,
+                        'Total Farm Size',
+                        widget.farmers.farmSize.toString() + ' Acr',
+                      ),
                     ],
                   ),
                 )),
@@ -92,11 +123,16 @@ class _FarmerCardState extends State<FarmerCard> {
     );
   }
 
+  // Returns a container that holds the details of the farmer in chidren[Text] widgets
   Widget itemRow(BuildContext context, String lab, String content) {
     return Container(
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(width: 1, color: Colors.grey)),
-        boxShadow: [if (!isHover) kDefaultCardShadow],
+        border: Border(
+          top: BorderSide(
+            width: 0.5,
+            color: primaryLight.withOpacity(0.5),
+          ),
+        ),
       ),
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Row(
@@ -108,8 +144,8 @@ class _FarmerCardState extends State<FarmerCard> {
                 lab + ' :',
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    color: Colors.grey,
-                    fontSize: 12),
+                    color: Colors.grey.shade700,
+                    fontSize: 14),
                 overflow: TextOverflow.clip,
                 softWrap: true,
               )),
@@ -118,7 +154,7 @@ class _FarmerCardState extends State<FarmerCard> {
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black54,
-                fontSize: 12),
+                fontSize: 16),
           ),
         ],
       ),
