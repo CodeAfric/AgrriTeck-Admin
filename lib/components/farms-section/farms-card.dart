@@ -81,9 +81,6 @@ class _FarmsCardState extends State<FarmsCard> {
                 ),
               ),
             ),
-            // SizedBox(
-            //   height: 5,
-            // ),
             Column(
               children: [
                 Padding(
@@ -93,16 +90,16 @@ class _FarmsCardState extends State<FarmsCard> {
                       Text(
                         "Farm ID: ",
                         style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: primaryLight,
+                            fontWeight: FontWeight.w600,
+                            color: primary,
                             fontSize: 14),
                       ),
                       Text(
                         widget.farms.farmId,
                         style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: Colors.grey,
-                            fontSize: 18),
+                            fontWeight: FontWeight.w900,
+                            color: Colors.black54,
+                            fontSize: 22),
                       ),
                     ],
                   ),
@@ -113,8 +110,8 @@ class _FarmsCardState extends State<FarmsCard> {
                     child: Text(
                       "Crops on Farm:",
                       style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: primaryLight,
+                          fontWeight: FontWeight.w600,
+                          color: primary,
                           fontSize: 14),
                     ),
                   ),
@@ -139,8 +136,8 @@ class _FarmsCardState extends State<FarmsCard> {
                                 widget.farms.cropType[index],
                                 style: TextStyle(
                                     fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.grey),
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black54),
                               ),
                             ],
                           ),
@@ -156,8 +153,8 @@ class _FarmsCardState extends State<FarmsCard> {
                           child: Text(
                             "Location:",
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: primaryLight,
+                                fontWeight: FontWeight.w600,
+                                color: primary,
                                 fontSize: 14),
                           ),
                         ),
@@ -169,7 +166,7 @@ class _FarmsCardState extends State<FarmsCard> {
                                 : "",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: Colors.grey,
+                                color: Colors.black54,
                                 fontSize: 16),
                           ),
                         ),
@@ -182,9 +179,9 @@ class _FarmsCardState extends State<FarmsCard> {
                           child: Text(
                             "Farm Size:",
                             style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: primaryLight,
-                                fontSize: 13),
+                                fontWeight: FontWeight.w600,
+                                color: primary,
+                                fontSize: 14),
                           ),
                         ),
                         subtitle: Padding(
@@ -195,7 +192,7 @@ class _FarmsCardState extends State<FarmsCard> {
                                 : "",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                color: Colors.grey,
+                                color: Colors.black54,
                                 fontSize: 16),
                           ),
                         ),
@@ -209,8 +206,8 @@ class _FarmsCardState extends State<FarmsCard> {
                     child: Text(
                       "Description:",
                       style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          color: primaryLight,
+                          fontWeight: FontWeight.w600,
+                          color: primary,
                           fontSize: 14),
                     ),
                   ),
@@ -219,14 +216,36 @@ class _FarmsCardState extends State<FarmsCard> {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54,
                       fontSize: 16,
                       height: 1.4,
                     ),
                   ),
                 ),
               ],
+            ),
+            Spacer(),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: primary,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(15),
+                  ),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                child: Text(
+                  'Read More >>',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                      fontFamily: "SF Pro Display",
+                      fontSize: 16),
+                ),
+              ),
             ),
           ],
         ),
