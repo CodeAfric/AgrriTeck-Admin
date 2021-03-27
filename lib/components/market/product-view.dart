@@ -1,7 +1,10 @@
 import 'package:agriteck_admin/components/Common-widget/responsive_widget.dart';
 import 'package:agriteck_admin/components/Common-widget/rounded_button.dart';
 import 'package:agriteck_admin/model-data/data-models.dart';
+import 'package:agriteck_admin/model-data/test-data.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
+import 'package:async_loader/async_loader.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +13,7 @@ import '../../constants.dart';
 
 class ProductView extends StatefulWidget {
   final Market product;
+
   ProductView({Key key, this.product}) : super(key: key);
 
   @override
@@ -17,10 +21,44 @@ class ProductView extends StatefulWidget {
 }
 
 class _ProductViewState extends State<ProductView> {
+  final GlobalKey<AsyncLoaderState> _asyncLoaderState =
+      new GlobalKey<AsyncLoaderState>();
+  List<Comments> comments = [];
+  getComments() {
+    ListGenerator.someComments().forEach((element) {
+      if (element.postId == widget.product.productId) {
+        comments.add(element);
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    getComments();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var ht = MediaQuery.of(context).size.height;
-    var wt=MediaQuery.of(context).size.width;
+    var wt = MediaQuery.of(context).size.width;
+    var _asyncLoader = new AsyncLoader(
+        key: _asyncLoaderState,
+        initState: () => getComments(),
+        renderLoad: () => Center(child: new CircularProgressIndicator()),
+        renderError: ([error]) => Center(child: Text('Error Loading data')),
+        renderSuccess: ({data}) => Container(
+              width: wt,
+              height: 200,
+              child: ListView.builder(
+                itemCount: comments.length,
+                itemBuilder: (context, index) {
+                  return comments.length == 0
+                      ? Center(child: Text('Empty Data'))
+                      : commentCard(context, comments[index]);
+                },
+              ),
+            ));
     return ResponsiveWidget(
       tabletScreen: Padding(
         padding: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
@@ -165,7 +203,7 @@ class _ProductViewState extends State<ProductView> {
                           ),
                         ],
                       ),
-                      width: (wt*.5)-25,
+                      width: (wt * .5) - 25,
                       height: (ht - 100) * .8,
                       child: CarouselSlider(
                         options: CarouselOptions(
@@ -177,7 +215,8 @@ class _ProductViewState extends State<ProductView> {
                           enlargeCenterPage: true,
                           autoPlay: false,
                           autoPlayInterval: Duration(seconds: 3),
-                          autoPlayAnimationDuration: Duration(milliseconds: 800),
+                          autoPlayAnimationDuration:
+                              Duration(milliseconds: 800),
                           autoPlayCurve: Curves.fastOutSlowIn,
                         ),
                         items: widget.product.images
@@ -192,147 +231,274 @@ class _ProductViewState extends State<ProductView> {
                             .toList(),
                       ),
                     ),
-
                     Container(
-                      width:(wt*.5)-10,
-                      height: ht-100,
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      child:SingleChildScrollView(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ListTile(
-                                title: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      widget.product.productName,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          color: primary,
-                                          fontFamily: "SF Pro Display",
-                                          fontSize: 20),
-                                    ),
-                                    Text(
-                                      widget.product.timeStamp,
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w100,
-                                          color: Colors.grey,
-                                          fontFamily: "SF Pro Display",
-                                          fontSize: 14),
-                                    ),
-                                  ],
-                                ),
-                                subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 15),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                        width: (wt * .5) - 10,
+                        height: ht - 100,
+                        margin: EdgeInsets.symmetric(horizontal: 5),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              ListTile(
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Product Description',
+                                        widget.product.productName,
                                         style: TextStyle(
                                             fontWeight: FontWeight.w700,
-                                            color: primaryDark,
+                                            color: primary,
                                             fontFamily: "SF Pro Display",
-                                            decoration: TextDecoration.underline),
+                                            fontSize: 20),
                                       ),
-                                      SizedBox(height: 10,),
-
                                       Text(
-                                        widget.product.productDescription,
+                                        widget.product.timeStamp,
                                         style: TextStyle(
-                                            color: Colors.black87,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.w200,
-                                            height: 1.5),
+                                            fontWeight: FontWeight.w100,
+                                            color: Colors.grey,
+                                            fontFamily: "SF Pro Display",
+                                            fontSize: 14),
                                       ),
                                     ],
                                   ),
-                                )),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            ListTile(
-                              leading:AnimatedContainer(
-                                duration: Duration(seconds: 500),
-                                height: 70,
-                                width: 70,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(widget.product.farmer['img']),
+                                  subtitle: Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Product Description',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              color: primaryDark,
+                                              fontFamily: "SF Pro Display",
+                                              decoration:
+                                                  TextDecoration.underline),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          widget.product.productDescription,
+                                          style: TextStyle(
+                                              color: Colors.black87,
+                                              fontSize: 15,
+                                              fontWeight: FontWeight.w200,
+                                              height: 1.5),
+                                        ),
+                                      ],
+                                    ),
+                                  )),
+                              SizedBox(
+                                height: 15,
+                              ),
+                              ListTile(
+                                leading: AnimatedContainer(
+                                  duration: Duration(seconds: 500),
+                                  height: 70,
+                                  width: 70,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: AssetImage(
+                                          widget.product.farmer['img']),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              title: Text('Contact Info',style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                color: primaryDark,
-                                fontFamily: "SF Pro Display",
-                                decoration: TextDecoration.underline
-                              ),),
-                              subtitle: Padding(
-                                padding: const EdgeInsets.only(top: 12),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Name: ${widget.product.farmer['name']}',style: TextStyle(
+                                title: Text(
+                                  'Contact Info',
+                                  style: TextStyle(
                                       fontWeight: FontWeight.w700,
+                                      color: primaryDark,
                                       fontFamily: "SF Pro Display",
-                                      color: Colors.grey
-                                    ),),
-                                    SizedBox(height: 12,),
-                                    Text('Location: ${widget.product.farmer['Location']}',style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: "SF Pro Display",
-                                        color: Colors.grey
-                                    ),),
-                                    SizedBox(height: 12,),
-                                    Text('Phone: ${widget.product.farmer['phone']}',style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontFamily: "SF Pro Display",
-                                        color: Colors.grey
-                                    ),),
+                                      decoration: TextDecoration.underline),
+                                ),
+                                subtitle: Padding(
+                                  padding: const EdgeInsets.only(top: 12),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Name: ${widget.product.farmer['name']}',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "SF Pro Display",
+                                            color: Colors.grey),
+                                      ),
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      Text(
+                                        'Location: ${widget.product.farmer['Location']}',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "SF Pro Display",
+                                            color: Colors.grey),
+                                      ),
+                                      SizedBox(
+                                        height: 12,
+                                      ),
+                                      Text(
+                                        'Phone: ${widget.product.farmer['phone']}',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "SF Pro Display",
+                                            color: Colors.grey),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                trailing: Column(
+                                  children: [
+                                    Text(
+                                      'Qty : ${widget.product.quantity} ${widget.product.measure}',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.grey,
+                                          fontFamily: "SF Pro Display",
+                                          fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      'Price : GH₵${widget.product.price} ',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.grey,
+                                          fontFamily: "SF Pro Display",
+                                          fontSize: 15),
+                                    ),
                                   ],
                                 ),
                               ),
-                              trailing:Column(
-                                children: [
-                                  Text(
-                                    'Qty : ${widget.product.quantity} ${widget.product.measure}',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.grey,
-                                        fontFamily: "SF Pro Display",
-                                        fontSize: 15),
-                                  ),
-                                  SizedBox(height: 10,),
-                                  Text(
-                                    'Price : GH₵${widget.product.price} ',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.grey,
-                                        fontFamily: "SF Pro Display",
-                                        fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                          ],
-                        ),
-                      )
-
-                    )
+                              Padding(
+                                padding: const EdgeInsets.only(top: 20),
+                                child: ListTile(
+                                    title: Text(
+                                      'Comments',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: primaryLight,
+                                          fontFamily: "SF Pro Display",
+                                          fontSize: 15),
+                                    ),
+                                    subtitle: _asyncLoader),
+                              )
+                            ],
+                          ),
+                        ))
                   ],
                 ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget commentCard(BuildContext buildContext, Comments comments) {
+    return ListTile(
+      leading: AnimatedContainer(
+        duration: Duration(seconds: 500),
+        height: 30,
+        width: 30,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(comments.senderImage),
+          ),
+        ),
+      ),
+      title: Text(
+        comments.senderName,
+        style: TextStyle(
+            fontWeight: FontWeight.w500, color: Colors.grey, fontSize: 15),
+      ),
+      subtitle: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.timer, size: 15, color: Colors.grey),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  comments.timeStamp,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontFamily: "SF Pro Display",
+                  ),
+                ),
+                SizedBox(
+                  width: 40,
+                ),
+                Icon(Icons.location_on_sharp, size: 15, color: Colors.grey),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  comments.senderLocation,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
+                    fontFamily: "SF Pro Display",
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          comments.messageImages != null || comments.messageImages.isNotEmpty
+              ? CachedNetworkImage(
+                  height: 100,
+                  width: double.infinity,
+                  imageUrl:
+                      "gs://my-portfolio-5adb3.appspot.com/DSC_0194-e1399462629842.jpg",
+                  placeholder: (context, url) =>
+                      new CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => new Image.asset(
+                    comments.messageImages,
+                    fit: BoxFit.fill,
+                  ),
+                )
+              : Container(),
+          Text(
+            comments.message,
+            style: TextStyle(
+                color: Colors.grey,
+                fontFamily: "SF Pro Display",
+                fontSize: 14,
+                height: 1.5),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Divider(
+            height: 2,
+            color: Colors.grey,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+        ],
       ),
     );
   }

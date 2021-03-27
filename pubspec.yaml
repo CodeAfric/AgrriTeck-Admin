@@ -42,6 +42,7 @@ dependencies:
   cloud_firestore: ^0.14.3+1
   google_fonts: ^1.1.1
   hovering: ^1.0.4
+  async_loader: ^0.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

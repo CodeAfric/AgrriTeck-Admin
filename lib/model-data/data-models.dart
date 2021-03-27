@@ -142,9 +142,9 @@ class Community {
 
 
 class Comments{
-   String commentId, postId,senderName,senderId,senderImage,message,timeStamp,messageImages;
-  Comments(this.senderName, this.senderId, this.senderImage, this.message,this.postId,
-      this.timeStamp, this.messageImages,this.commentId);
+   String commentId, postId,senderName,senderId,senderImage,message,timeStamp,messageImages,senderLocation;
+  Comments({this.senderName, this.senderId, this.senderImage, this.message,this.postId,
+      this.timeStamp, this.messageImages,this.commentId,this.senderLocation});
   Map<String, dynamic> toMap() {
     var map = Map<String, dynamic>();
     map['senderImage'] = senderImage;
@@ -155,6 +155,7 @@ class Comments{
     map['messageImages'] = messageImages;
     map['postId'] = postId;
     map['commentId'] = commentId;
+    map['senderLocation'] = senderLocation;
     return map;
   }
   Comments.fromMapObject(Map<String, dynamic> map) {
@@ -166,6 +167,7 @@ class Comments{
     this.messageImages=map['messageImages'];
     this.postId = map['postId'];
     this.commentId = map['commentId'];
+    this.senderLocation = map['senderLocation'];
 
   }
 
@@ -207,5 +209,34 @@ class Market{
 
   }
 
+}
+
+class Crops{
+  String cropName,cropId,prefereSoil,cropDescription;
+  List cropSpecies,cropPestAndDisease,tips;
+
+  Crops({this.cropName, this.cropId, this.prefereSoil, this.cropDescription,
+      this.cropSpecies, this.cropPestAndDisease, this.tips});
+
+  Map<String, dynamic> toMap() {
+    var map = Map<String, dynamic>();
+    map['cropName'] = cropName;
+    map['cropId'] = cropId;
+    map['prefereSoil'] = prefereSoil;
+    map['cropDescription'] = cropDescription;
+    map['cropSpecies'] = cropSpecies;
+    map['cropPestAndDisease'] = cropPestAndDisease;
+    map['tips'] = tips;
+    return map;
+  }
+  Crops.fromMapObject(Map<String, dynamic> map) {
+    this.cropName = map['cropName'];
+    this.cropId = map['cropId'];
+    this.prefereSoil = map['prefereSoil'];
+    this.cropDescription = map['cropDescription'];
+    this.cropSpecies = map['cropSpecies'];
+    this.cropPestAndDisease=map['cropPestAndDisease'];
+    this.tips = map['tips'];
+  }
 }
 
