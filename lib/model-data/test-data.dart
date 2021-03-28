@@ -865,7 +865,50 @@ class ListGenerator {
 
   static List<Comments> someComments() {
     return [
-      //Comments(senderName, senderId, senderImage, message, postId, timeStamp, messageImages)
+     Comments(
+       senderImage: "assets/images/farmer1.jpg",
+       senderId: "F10001",
+       senderLocation: "Old Adokwai",
+       senderName: "Frank Castle",
+       message: "An annual plant is a plant that completes its life cycle, from germination to the production of seeds, within one growing season, and then dies. The length of growing seasons and period in which they take place vary according to geographical location, and may not correspond to the four traditional seasonal divisions of the year.",
+       commentId: "C10001",
+       postId: "P10001",
+       timeStamp: "10th May, 2021 - 09:21 Am",
+       messageImages: "assets/plants/crop1.png",
+     ),
+      Comments(
+          senderImage: "assets/images/farmer1.jpg",
+          senderId: "F10001",
+          senderLocation: "Old Adokwai",
+          senderName: "Frank Castle",
+          message: "An annual plant is a plant that completes its life cycle, from germination to the production of seeds, within one growing season, and then dies. The length of growing seasons and period in which they take place vary according to geographical location, and may not correspond to the four traditional seasonal divisions of the year.",
+          commentId: "C10001",
+          postId: "P10001",
+          timeStamp: "10th May, 2021 - 09:21 Am",
+          messageImages: ""
+      ),
+      Comments(
+          senderImage: "assets/images/farmer1.jpg",
+          senderId: "F10001",
+          senderLocation: "Old Adokwai",
+          senderName: "Frank Castle",
+          message: "An annual plant is a plant that completes its life cycle, from germination to the production of seeds, within one growing season, and then dies. The length of growing seasons and period in which they take place vary according to geographical location, and may not correspond to the four traditional seasonal divisions of the year.",
+          commentId: "C10001",
+          postId: "P10001",
+          timeStamp: "10th May, 2021 - 09:21 Am",
+          messageImages: "assets/plants/crop1.png",
+      ),
+      Comments(
+          senderImage: "assets/images/farmer1.jpg",
+          senderId: "F10001",
+          senderLocation: "Old Adokwai",
+          senderName: "Frank Castle",
+          message: "An annual plant is a plant that completes its life cycle, from germination to the production of seeds, within one growing season, and then dies. The length of growing seasons and period in which they take place vary according to geographical location, and may not correspond to the four traditional seasonal divisions of the year.",
+          commentId: "C10001",
+          postId: "P10001",
+          timeStamp: "10th May, 2021 - 09:21 Am",
+          messageImages: ""
+      )
     ];
   }
 

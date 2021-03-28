@@ -1,8 +1,9 @@
 import 'package:agriteck_admin/components/Common-widget/responsive_widget.dart';
+import 'package:agriteck_admin/components/Common-widget/sliding-image.dart';
 import 'package:agriteck_admin/model-data/data-models.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_carousel_slider/carousel_slider.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import '../../constants.dart';
 
@@ -72,28 +73,9 @@ class _ViewCommunityState extends State<ViewCommunity> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                initialPage: 0,
-                                aspectRatio: 2,
-                                enableInfiniteScroll: true,
-                                reverse: true,
-                                enlargeCenterPage: true,
-                                autoPlay: false,
-                                autoPlayInterval: Duration(seconds: 3),
-                                autoPlayAnimationDuration:
-                                Duration(milliseconds: 800),
-                                autoPlayCurve: Curves.fastOutSlowIn,
-                              ),
-                              items: widget.community.images
-                                  .map((item) => Center(
-                                child: Image.asset(
-                                  item,
-                                  width: double.infinity,
-                                  fit: BoxFit.fill,
-                                  height: (ht - 100) * .7,
-                                ),
-                              )).toList(),
+                            CustomImageSlider(
+                              items: widget.community.images,
+                              ht: ht,
                             ),
                             ListTile(
                               title: Row(
@@ -173,69 +155,7 @@ class _ViewCommunityState extends State<ViewCommunity> {
                             ),
                             SizedBox(height: 20,),
                             Text('Replies'),
-                            // Container(
-                            //     width: double.infinity,
-                            //     height: 300,
-                            //     color: Colors.grey.withOpacity(0.2),
-                            //     child: ListView.builder(
-                            //         itemCount: widget.community.comments.length,
-                            //         itemBuilder: (BuildContext ctxt, int index) {
-                            //           return  Column(
-                            //             mainAxisAlignment: MainAxisAlignment.start,
-                            //             crossAxisAlignment: CrossAxisAlignment.start,
-                            //             children: [
-                            //               ListTile(
-                            //                 title:Text(widget.community.comments[index]['name'], style: TextStyle(
-                            //                     fontSize: 13,
-                            //                     fontWeight: FontWeight.bold,
-                            //                     color: primaryLight),),
-                            //                 leading: AnimatedContainer(
-                            //                   duration: Duration(seconds: 500),
-                            //                   height: 30,
-                            //                   width: 30,
-                            //                   decoration: BoxDecoration(
-                            //                     shape: BoxShape.circle,
-                            //                     image: DecorationImage(
-                            //                       fit: BoxFit.cover,
-                            //                       image: AssetImage(widget.community.comments[index]['senderImage']),
-                            //                     ),
-                            //                   ),
-                            //                 ),
-                            //                 subtitle: Padding(
-                            //                   padding: const EdgeInsets.only(top: 10),
-                            //                   child: Row(
-                            //                     children: [
-                            //                       Icon(Icons.date_range_rounded,color: Colors.grey,size: 15,),
-                            //                       SizedBox(width: 8,),
-                            //                       Text(widget.community.comments[index]['timeStamp'], style: TextStyle(
-                            //                           fontSize: 12,
-                            //                           fontWeight: FontWeight.w500,
-                            //                           color: Colors.grey),),
-                            //                       SizedBox(width: 30,),
-                            //                       Icon(Icons.location_on_sharp,color: Colors.grey,size: 15,),
-                            //                       SizedBox(width: 8,),
-                            //                       Text(widget.community.comments[index]['location'], style: TextStyle(
-                            //                           fontSize: 12,
-                            //                           fontWeight: FontWeight.w500,
-                            //                           color: Colors.grey),),
-                            //
-                            //                     ],
-                            //                   ),
-                            //                 ),
-                            //               ),
-                            //               Padding(
-                            //                 padding: const EdgeInsets.only(left: 18,top: 5,bottom: 10),
-                            //                 child: Text(widget.community.comments[index]['message'],style: TextStyle(
-                            //                     fontSize: 13,
-                            //                     height: 1.5,
-                            //                     fontWeight: FontWeight.w500,
-                            //                     color: Colors.grey),),
-                            //               ),
-                            //             ],
-                            //           );
-                            //         }
-                            //     )
-                            // )
+
                           ],
                         ),
                       ),
@@ -308,28 +228,9 @@ class _ViewCommunityState extends State<ViewCommunity> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CarouselSlider(
-                            options: CarouselOptions(
-                              initialPage: 0,
-                              aspectRatio: 2,
-                              enableInfiniteScroll: true,
-                              reverse: true,
-                              enlargeCenterPage: true,
-                              autoPlay: false,
-                              autoPlayInterval: Duration(seconds: 3),
-                              autoPlayAnimationDuration:
-                              Duration(milliseconds: 800),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                            ),
-                            items: widget.community.images
-                                .map((item) => Center(
-                              child: Image.asset(
-                                item,
-                                width: double.infinity,
-                                fit: BoxFit.fill,
-                                height: (ht - 100) * .7,
-                              ),
-                            )).toList(),
+                          CustomImageSlider(
+                            items: widget.community.images,
+                            ht: ht,
                           ),
                           ListTile(
                             title: Row(
