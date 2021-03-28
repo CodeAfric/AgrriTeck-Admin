@@ -227,9 +227,12 @@ class _DiseasesViewState extends State<DiseasesView> {
                     children: [
                       Row(
                         children: [
-                          CustomImageSlider(
-                            items: widget.disease.images,
-                            ht: ht,
+                          Text(
+                            widget.disease.name,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: Colors.black54,
+                                fontSize: 24),
                           ),
                           SizedBox(
                             width: 15.0,
@@ -280,9 +283,17 @@ class _DiseasesViewState extends State<DiseasesView> {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: CustomImageSlider(
-                            items: widget.disease.images,
-                            ht: ht,
+                          child: Container(
+                            padding: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.all(10.0),
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade100,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: CustomImageSlider(
+                              items: widget.disease.images,
+                              ht: ht,
+                            ),
                           ),
                         ),
                         Expanded(

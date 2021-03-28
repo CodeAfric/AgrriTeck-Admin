@@ -474,6 +474,20 @@ class _ViewFarmState extends State<ViewFarm> {
                 ),
                 child: Row(
                   children: [
+                    Text(
+                      "Farm ID: ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: primary,
+                          fontSize: 14),
+                    ),
+                    Text(
+                      '#${widget.farms.farmId}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black54,
+                          fontSize: 24),
+                    ),
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -493,7 +507,7 @@ class _ViewFarmState extends State<ViewFarm> {
                               Navigator.of(context).pop();
                             }),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -507,9 +521,17 @@ class _ViewFarmState extends State<ViewFarm> {
                     children: [
                       Expanded(
                         flex: 3,
-                        child: CustomImageSlider(
-                          items: widget.farms.images,
-                          ht: ht,
+                        child: Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: CustomImageSlider(
+                            items: widget.farms.images,
+                            ht: ht,
+                          ),
                         ),
                         //child: CustomSlidingImage(ht,widget.farms.images),
                       ),
