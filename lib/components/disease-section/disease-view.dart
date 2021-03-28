@@ -1,8 +1,8 @@
 import 'package:agriteck_admin/components/Common-widget/responsive_widget.dart';
 import 'package:agriteck_admin/components/Common-widget/rounded_button.dart';
+import 'package:agriteck_admin/components/Common-widget/sliding-image.dart';
 import 'package:agriteck_admin/model-data/data-models.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
@@ -22,7 +22,7 @@ class _DiseasesViewState extends State<DiseasesView> {
     var ht = MediaQuery.of(context).size.height;
     return ResponsiveWidget(
       tabletScreen: Padding(
-        padding: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -80,30 +80,9 @@ class _DiseasesViewState extends State<DiseasesView> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CarouselSlider(
-                          options: CarouselOptions(
-                            viewportFraction: 0.8,
-                            initialPage: 0,
-                            aspectRatio: 2,
-                            enableInfiniteScroll: true,
-                            reverse: true,
-                            enlargeCenterPage: true,
-                            autoPlay: false,
-                            autoPlayInterval: Duration(seconds: 3),
-                            autoPlayAnimationDuration:
-                                Duration(milliseconds: 800),
-                            autoPlayCurve: Curves.fastOutSlowIn,
-                          ),
-                          items: widget.disease.images
-                              .map((item) => Center(
-                                    child: Image.asset(
-                                      item,
-                                      width: double.infinity,
-                                      fit: BoxFit.fill,
-                                      height: (ht - 100) * .7,
-                                    ),
-                                  ))
-                              .toList(),
+                        CustomImageSlider(
+                          items: widget.disease.images,
+                          ht: ht,
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -248,12 +227,9 @@ class _DiseasesViewState extends State<DiseasesView> {
                     children: [
                       Row(
                         children: [
-                          Text(
-                            '#${widget.disease.name}',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w900,
-                                color: Colors.black54,
-                                fontSize: 32),
+                          CustomImageSlider(
+                            items: widget.disease.images,
+                            ht: ht,
                           ),
                           SizedBox(
                             width: 15.0,
@@ -304,56 +280,9 @@ class _DiseasesViewState extends State<DiseasesView> {
                       children: [
                         Expanded(
                           flex: 3,
-                          child: Container(
-                            height: double.infinity,
-                            margin: EdgeInsets.all(5.0),
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: CarouselSlider(
-                              options: CarouselOptions(
-                                viewportFraction: 0.8,
-                                initialPage: 0,
-                                aspectRatio: 2,
-                                enableInfiniteScroll: true,
-                                reverse: true,
-                                enlargeCenterPage: true,
-                                autoPlay: false,
-                                autoPlayInterval: Duration(seconds: 3),
-                                autoPlayAnimationDuration:
-                                    Duration(milliseconds: 800),
-                                autoPlayCurve: Curves.fastOutSlowIn,
-                              ),
-                              items: widget.disease.images
-                                  .map((item) => Center(
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.5),
-                                                spreadRadius: 5,
-                                                blurRadius: 7,
-                                                offset: Offset(0,
-                                                    3), // changes position of shadow
-                                              ),
-                                            ],
-                                          ),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.asset(
-                                              item,
-                                              width: double.infinity,
-                                              fit: BoxFit.fill,
-                                              height: (ht - 100) * .7,
-                                            ),
-                                          ),
-                                        ),
-                                      ))
-                                  .toList(),
-                            ),
+                          child: CustomImageSlider(
+                            items: widget.disease.images,
+                            ht: ht,
                           ),
                         ),
                         Expanded(

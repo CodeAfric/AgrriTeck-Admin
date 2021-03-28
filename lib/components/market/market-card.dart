@@ -101,7 +101,7 @@ class _MarketCardState extends State<MarketCard> {
                   child: Text(
                     widget.product.productDescription,
                     maxLines: 2,
-                    overflow: TextOverflow.clip,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         color: Colors.black87,
                         fontSize: 13,

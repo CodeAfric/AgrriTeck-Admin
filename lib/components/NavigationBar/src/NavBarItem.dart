@@ -45,7 +45,7 @@ class _NavBarButtonState extends State<NavBarButton> {
                         color: primaryDark,
                         fontWeight: FontWeight.w700,
                         fontFamily: "SF Pro Display",
-                        fontSize: 22),
+                        fontSize: 16),
                   )
                   : Text(
                     widget.tex,

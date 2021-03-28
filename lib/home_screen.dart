@@ -41,6 +41,22 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List farmers, diseases, farms, community, market;
+  ScrollController _controller;
+  final itemSize = 100.0;
+  bool scrollRight = true;
+  bool scrollLeft = false;
+  List<Map<String, dynamic>> navigationItem = [
+    {'label': "Home", 'navIco': NavIcons.Home},
+    {'label': "Farmers", 'navIco': NavIcons.Users},
+    {'label': "Farms", 'navIco': NavIcons.Farms},
+    {'label': "Diseases", 'navIco': NavIcons.Diseases},
+    {'label': "Vendors", 'navIco': NavIcons.Vendors},
+    {'label': "Investors", 'navIco': NavIcons.Investors},
+    {'label': "Market", 'navIco': NavIcons.Market},
+    {'label': "Crops", 'navIco': NavIcons.Crops},
+    {'label': "Community", 'navIco': NavIcons.Community},
+    {'label': "Complaints", 'navIco': NavIcons.Complaints}
+  ];
   void generateData() async {
     diseases = ListGenerator.diseasesData();
 
@@ -86,6 +102,16 @@ class _HomeScreenState extends State<HomeScreen> {
       Provider.of<AppProviders>(context, listen: false)
           .updateSearchCommunity(community);
     });
+    if (_controller.offset >= _controller.position.maxScrollExtent &&
+        !_controller.position.outOfRange) {
+      setState(() {
+        scrollRight = false;
+      });
+    } else {
+      setState(() {
+        scrollRight = true;
+      });
+    }
 
     await readDiseases();
   }
@@ -117,6 +143,29 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  _scrollListener() {
+    if (_controller.offset >= _controller.position.maxScrollExtent &&
+        !_controller.position.outOfRange) {
+      setState(() {
+        scrollRight = false;
+      });
+    } else {
+      setState(() {
+        scrollRight = true;
+      });
+    }
+    if (_controller.offset <= _controller.position.minScrollExtent &&
+        !_controller.position.outOfRange) {
+      setState(() {
+        scrollLeft = false;
+      });
+    } else {
+      setState(() {
+        scrollLeft = true;
+      });
+    }
+  }
+
 //----------------------------------------------------------------------------------------
   final ScrollController _scrollController = ScrollController();
 
@@ -125,6 +174,8 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isSearching = false;
   @override
   void initState() {
+    _controller = ScrollController();
+    _controller.addListener(_scrollListener);
     super.initState();
     generateData();
     navIco = widget.navIcons;
@@ -137,6 +188,16 @@ class _HomeScreenState extends State<HomeScreen> {
       tabletScreen: tablet(context),
       mobileScreen: null,
     );
+  }
+
+  _moveUp() {
+    _controller.animateTo(_controller.offset - itemSize,
+        curve: Curves.linear, duration: Duration(milliseconds: 500));
+  }
+
+  _moveDown() {
+    _controller.animateTo(_controller.offset + itemSize,
+        curve: Curves.linear, duration: Duration(milliseconds: 500));
   }
 
   Widget deskTop(BuildContext context) {
@@ -184,6 +245,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 45,
                     ),
                     SizedBox(width: 50),
+                    scrollLeft && !isSearching
+                        ? Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: IconButton(
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: primary,
+                                ),
+                                onPressed: _moveUp),
+                          )
+                        : Text(''),
                     isSearching
                         ? SizedBox(
                             width: _width * 0.5,
@@ -192,175 +264,61 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )
                         : Container(
-                            width: _width * .68,
-                            child: SingleChildScrollView(
+                            width: _width * .6,
+                            height: 30,
+                            padding: EdgeInsets.only(right: 40),
+                            child: ListView.builder(
+                              controller: _controller,
+                              itemCount: navigationItem.length,
                               scrollDirection: Axis.horizontal,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  NavBarButton(
-                                    tex: "Home",
-                                    active: selected[0],
-                                    touched: () {
-                                      setState(() {
-                                        select(0);
-                                        navIco = NavIcons.Home;
-                                      });
-                                    },
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 40),
+                                  child: Container(
+                                    child: NavBarButton(
+                                      tex: navigationItem[index]['label'],
+                                      active: selected[index],
+                                      touched: () {
+                                        setState(() {
+                                          select(index);
+                                          navIco =
+                                              navigationItem[index]['navIco'];
+                                        });
+                                      },
+                                    ),
                                   ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Farmers",
-                                    active: selected[1],
-                                    touched: () {
-                                      setState(() {
-                                        select(1);
-                                        navIco = NavIcons.Users;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Farms",
-                                    active: selected[2],
-                                    touched: () {
-                                      setState(() {
-                                        select(2);
-                                        navIco = NavIcons.Farms;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Diseases",
-                                    active: selected[3],
-                                    touched: () {
-                                      setState(() {
-                                        select(3);
-                                        navIco = NavIcons.Diseases;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Co-operation",
-                                    active: selected[4],
-                                    touched: () {
-                                      setState(() {
-                                        select(4);
-                                        navIco = NavIcons.Groups;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Vendors",
-                                    active: selected[5],
-                                    touched: () {
-                                      setState(() {
-                                        select(5);
-                                        navIco = NavIcons.Vendors;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Investors",
-                                    active: selected[6],
-                                    touched: () {
-                                      setState(() {
-                                        select(6);
-                                        navIco = NavIcons.Investors;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Market",
-                                    active: selected[7],
-                                    touched: () {
-                                      setState(() {
-                                        select(7);
-                                        navIco = NavIcons.Market;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Crops",
-                                    active: selected[8],
-                                    touched: () {
-                                      setState(() {
-                                        select(8);
-                                        navIco = NavIcons.Crops;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Community",
-                                    active: selected[9],
-                                    touched: () {
-                                      setState(() {
-                                        select(9);
-                                        navIco = NavIcons.Community;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  NavBarButton(
-                                    tex: "Complaints",
-                                    active: selected[10],
-                                    touched: () {
-                                      setState(() {
-                                        select(10);
-                                        navIco = NavIcons.Complaints;
-                                      });
-                                    },
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                ],
-                              ),
+                                );
+                              },
                             ),
                           ),
-                    Spacer(),
-                    navIco == NavIcons.Home
-                        ? Container()
-                        : IconButton(
-                            icon: Icon(
-                              !isSearching ? Icons.search : Icons.close,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                generateData();
-                                isSearching = isSearching ? false : true;
-                              });
-                            }),
-                    SizedBox(
-                      width: 10,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        scrollRight && !isSearching
+                            ? Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: IconButton(
+                                    icon: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: primary,
+                                    ),
+                                    onPressed: _moveDown),
+                              )
+                            : Text(''),
+                        navIco == NavIcons.Home
+                            ? Container()
+                            : IconButton(
+                                icon: Icon(
+                                  !isSearching ? Icons.search : Icons.close,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    generateData();
+                                    isSearching = isSearching ? false : true;
+                                  });
+                                }),
+                      ],
                     ),
                   ],
                 ),
