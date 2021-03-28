@@ -604,8 +604,8 @@ class _ViewFarmState extends State<ViewFarm> {
                             ),
                           ),
                         ),
-                        Container(
-                          width: 500.0,
+                        Expanded(
+                          flex: 2,
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
@@ -889,37 +889,45 @@ class _ViewFarmState extends State<ViewFarm> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
-                                            width: 100,
-                                            child: Text(
-                                              'Date',
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Text(
+                                                'Date',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.normal),
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 2,
+                                            child: Container(
+                                                // width: 150,
+                                                child: Text(
+                                              'Activity on Farm',
                                               style: TextStyle(
                                                   fontSize: 16,
                                                   color: Colors.white,
                                                   fontWeight:
                                                       FontWeight.normal),
-                                            ),
+                                            )),
                                           ),
-                                          Container(
-                                              width: 150,
-                                              child: Text(
-                                                'Activity on Farm',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.normal),
-                                              )),
-                                          Container(
-                                              width: 150,
-                                              child: Text(
-                                                'Inputs',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.white,
-                                                    fontWeight:
-                                                        FontWeight.normal),
-                                              )),
+                                          Expanded(
+                                            flex: 2,
+                                            child: Container(
+                                                // width: 150,
+                                                child: Text(
+                                              'Inputs',
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.white,
+                                                  fontWeight:
+                                                      FontWeight.normal),
+                                            )),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -973,32 +981,38 @@ class _ViewFarmState extends State<ViewFarm> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            width: 100,
-            child: Text(
-              date != null ? date : '',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black54,
-                  fontSize: 16),
-            ),
-          ),
-          Container(
-            width: 150,
-            child: Text(activity != null ? activity : '',
+          Expanded(
+            flex: 1,
+            child: Container(
+              child: Text(
+                date != null ? date : '',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: Colors.black54,
-                    fontSize: 16)),
+                    fontSize: 16),
+              ),
+            ),
           ),
-          Container(
-            width: 150,
-            child: Text(
-              input != null ? input : '',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black54,
-                  fontSize: 16),
+          Expanded(
+            flex: 2,
+            child: Container(
+              child: Text(activity != null ? activity : '',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54,
+                      fontSize: 16)),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              child: Text(
+                input != null ? input : '',
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black54,
+                    fontSize: 16),
+              ),
             ),
           ),
         ],

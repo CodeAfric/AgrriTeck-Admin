@@ -5,6 +5,7 @@ import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
 import 'package:provider/provider.dart';
+import 'components/Common-widget/floating-buttton.dart';
 import 'components/Common-widget/responsive_widget.dart';
 import 'components/Common-widget/search-bar.dart';
 import 'components/Common-widget/shape-painter.dart';
@@ -143,6 +144,19 @@ class _HomeScreenState extends State<HomeScreen> {
     double _height = MediaQuery.of(context).size.height;
     generateData();
     return Scaffold(
+      floatingActionButton: navIco == NavIcons.Diseases
+          ? FloatingButton(
+              label: 'Train Model',
+              icon: Icons.thumb_up,
+              onPressHandler: () {},
+            )
+          : navIco == NavIcons.Community
+              ? FloatingButton(
+                  label: 'Ask Community',
+                  icon: Icons.thumb_up,
+                  onPressHandler: () {},
+                )
+              : null,
       body: Stack(
         children: [
           Container(
@@ -178,172 +192,173 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )
                         : Container(
-                          width: _width*.68,
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                NavBarButton(
-                                  tex: "Home",
-                                  active: selected[0],
-                                  touched: () {
-                                    setState(() {
-                                      select(0);
-                                      navIco = NavIcons.Home;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Farmers",
-                                  active: selected[1],
-                                  touched: () {
-                                    setState(() {
-                                      select(1);
-                                      navIco = NavIcons.Users;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Farms",
-                                  active: selected[2],
-                                  touched: () {
-                                    setState(() {
-                                      select(2);
-                                      navIco = NavIcons.Farms;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Diseases",
-                                  active: selected[3],
-                                  touched: () {
-                                    setState(() {
-                                      select(3);
-                                      navIco = NavIcons.Diseases;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Co-operation",
-                                  active: selected[4],
-                                  touched: () {
-                                    setState(() {
-                                      select(4);
-                                      navIco = NavIcons.Groups;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Vendors",
-                                  active: selected[5],
-                                  touched: () {
-                                    setState(() {
-                                      select(5);
-                                      navIco = NavIcons.Vendors;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Investors",
-                                  active: selected[6],
-                                  touched: () {
-                                    setState(() {
-                                      select(6);
-                                      navIco = NavIcons.Investors;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Market",
-                                  active: selected[7],
-                                  touched: () {
-                                    setState(() {
-                                      select(7);
-                                      navIco = NavIcons.Market;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Crops",
-                                  active: selected[8],
-                                  touched: () {
-                                    setState(() {
-                                      select(8);
-                                      navIco = NavIcons.Crops;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Community",
-                                  active: selected[9],
-                                  touched: () {
-                                    setState(() {
-                                      select(9);
-                                      navIco = NavIcons.Community;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                                NavBarButton(
-                                  tex: "Complaints",
-                                  active: selected[10],
-                                  touched: () {
-                                    setState(() {
-                                      select(10);
-                                      navIco = NavIcons.Complaints;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 40,
-                                ),
-                              ],
+                            width: _width * .68,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  NavBarButton(
+                                    tex: "Home",
+                                    active: selected[0],
+                                    touched: () {
+                                      setState(() {
+                                        select(0);
+                                        navIco = NavIcons.Home;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Farmers",
+                                    active: selected[1],
+                                    touched: () {
+                                      setState(() {
+                                        select(1);
+                                        navIco = NavIcons.Users;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Farms",
+                                    active: selected[2],
+                                    touched: () {
+                                      setState(() {
+                                        select(2);
+                                        navIco = NavIcons.Farms;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Diseases",
+                                    active: selected[3],
+                                    touched: () {
+                                      setState(() {
+                                        select(3);
+                                        navIco = NavIcons.Diseases;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Co-operation",
+                                    active: selected[4],
+                                    touched: () {
+                                      setState(() {
+                                        select(4);
+                                        navIco = NavIcons.Groups;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Vendors",
+                                    active: selected[5],
+                                    touched: () {
+                                      setState(() {
+                                        select(5);
+                                        navIco = NavIcons.Vendors;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Investors",
+                                    active: selected[6],
+                                    touched: () {
+                                      setState(() {
+                                        select(6);
+                                        navIco = NavIcons.Investors;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Market",
+                                    active: selected[7],
+                                    touched: () {
+                                      setState(() {
+                                        select(7);
+                                        navIco = NavIcons.Market;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Crops",
+                                    active: selected[8],
+                                    touched: () {
+                                      setState(() {
+                                        select(8);
+                                        navIco = NavIcons.Crops;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Community",
+                                    active: selected[9],
+                                    touched: () {
+                                      setState(() {
+                                        select(9);
+                                        navIco = NavIcons.Community;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  NavBarButton(
+                                    tex: "Complaints",
+                                    active: selected[10],
+                                    touched: () {
+                                      setState(() {
+                                        select(10);
+                                        navIco = NavIcons.Complaints;
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
                     Spacer(),
-                    navIco==NavIcons.Home?Container():
-                    IconButton(
-                        icon: Icon(
-                          !isSearching ? Icons.search : Icons.close,
-                          color: Colors.black,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            generateData();
-                            isSearching = isSearching ? false : true;
-                          });
-                        }),
+                    navIco == NavIcons.Home
+                        ? Container()
+                        : IconButton(
+                            icon: Icon(
+                              !isSearching ? Icons.search : Icons.close,
+                              color: Colors.black,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                generateData();
+                                isSearching = isSearching ? false : true;
+                              });
+                            }),
                     SizedBox(
                       width: 10,
                     ),
@@ -352,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: MediaQuery.of(context).size.height - 100,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.only(left: 50, right: 20),
+                  padding: EdgeInsets.only(left: 20, right: 20),
                   child: Scrollbar(
                     thickness: 10,
                     controller: _scrollController,
@@ -419,13 +434,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 70,
                       fontSize: 45,
                     ),
-                    navIco==NavIcons.Home?Container():
-                    SizedBox(
-                      width: _width * 0.45,
-                      child: SearchBar(
-                        page: navIco,
-                      ),
-                    ),
+                    navIco == NavIcons.Home
+                        ? Container()
+                        : SizedBox(
+                            width: _width * 0.45,
+                            child: SearchBar(
+                              page: navIco,
+                            ),
+                          ),
                     Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: PopupMenuButton<NavIcons>(

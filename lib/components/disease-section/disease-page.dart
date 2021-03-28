@@ -23,111 +23,108 @@ class _DiseasePageState extends State<DiseasePage> {
     getUpdate();
     super.initState();
   }
-  void getUpdate(){
+
+  void getUpdate() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      List diseases= Provider.of<AppProviders>(context, listen: false).diseasesData;
-      Provider.of<AppProviders>(context, listen: false).updateSearchDisease(diseases);
+      List diseases =
+          Provider.of<AppProviders>(context, listen: false).diseasesData;
+      Provider.of<AppProviders>(context, listen: false)
+          .updateSearchDisease(diseases);
     });
   }
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    return Consumer<AppProviders>(
-        builder: (context, value, child) {
-          List diseases = value.searchDisease;
-          List search = value.diseasesData;
-          return Container(
-            padding: EdgeInsets.only(top: 20, bottom: 5),
-            child: Column(
+    return Consumer<AppProviders>(builder: (context, value, child) {
+      List diseases = value.searchDisease;
+      List search = value.diseasesData;
+      return Container(
+        padding: EdgeInsets.only(top: 20, bottom: 5),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: SizedBox(
-                        width: 200,
-                        child: RoundedButton(
-                          color: primaryDark,
-                          text: 'Train Model',
-                          textColor: Colors.white,
-                          fontSize: 14,
-                          horizontalPadding: 15,
-                          press: (){
-
-                          },
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                ResponsiveWidget(
-                  tabletScreen: Padding(
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Wrap(
-                      spacing: 15,
-                      runSpacing: 40,
-                      alignment: WrapAlignment.start,
-                      crossAxisAlignment: WrapCrossAlignment.start,
-                      children: List.generate(
-                        diseases.length,
-                            (index) =>
-                            DiseaseCard(
-                                index: index,
-                                width: width * .35,
-                                diseases: diseases[index],
-                                ht: 380,
-                                press: () {
-                                  showMaterialModalBottomSheet(
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    builder: (context) {
-                                      return DiseasesView(
-                                        disease: diseases[index],
-                                      );
-                                    },
-                                  );
-                                }),
-                      ),
-                    ),
-                  ),
-                  desktopScreen: Padding(
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Wrap(
-                      spacing: 15,
-                      runSpacing: 40,
-                      alignment: WrapAlignment.start,
-                      crossAxisAlignment: WrapCrossAlignment.start,
-                      children: List.generate(
-                        diseases.length,
-                            (index) =>
-                            DiseaseCard(
-                                index: index,
-                                width: 380,
-                                diseases: diseases[index],
-                                ht: 380,
-                                press: () {
-                                  showMaterialModalBottomSheet(
-                                    context: context,
-                                    backgroundColor: Colors.transparent,
-                                    builder: (context) {
-                                      return DiseasesView(
-                                        disease: diseases[index],
-                                      );
-                                    },
-                                  );
-                                }),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: SizedBox(
+                    width: 200,
+                    child: RoundedButton(
+                      color: primaryDark,
+                      text: 'Train Model',
+                      textColor: Colors.white,
+                      fontSize: 14,
+                      horizontalPadding: 15,
+                      press: () {},
                     ),
                   ),
                 ),
-                SizedBox(height: 100),
               ],
             ),
-          );
-
-        }
-    );
+            ResponsiveWidget(
+              tabletScreen: Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Wrap(
+                  spacing: 15,
+                  runSpacing: 40,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  children: List.generate(
+                    diseases.length,
+                    (index) => DiseaseCard(
+                        index: index,
+                        width: width * .35,
+                        diseases: diseases[index],
+                        ht: 400,
+                        press: () {
+                          showMaterialModalBottomSheet(
+                            context: context,
+                            backgroundColor: Colors.transparent,
+                            builder: (context) {
+                              return DiseasesView(
+                                disease: diseases[index],
+                              );
+                            },
+                          );
+                        }),
+                  ),
+                ),
+              ),
+              desktopScreen: Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Wrap(
+                  spacing: 15,
+                  runSpacing: 40,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  children: List.generate(
+                    diseases.length,
+                    (index) => DiseaseCard(
+                      index: index,
+                      width: 380,
+                      diseases: diseases[index],
+                      ht: 380,
+                      press: () {
+                        showMaterialModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          builder: (context) {
+                            return DiseasesView(
+                              disease: diseases[index],
+                            );
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 100),
+          ],
+        ),
+      );
+    });
   }
 }
