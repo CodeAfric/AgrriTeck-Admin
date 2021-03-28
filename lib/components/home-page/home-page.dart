@@ -1,4 +1,5 @@
 import 'package:agriteck_admin/components/Common-widget/animated-widget.dart';
+import 'package:agriteck_admin/components/Common-widget/sliding-image.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,10 +12,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      child: Row(
+      height: MediaQuery.of(context).size.height,
+      child: Column(
         children: [
-          Spacer(),
-          AnimatedImage(),
+          Row(
+            children: [
+              Spacer(),
+              AnimatedImage(),
+            ],
+          ),
         ],
       ),
     );

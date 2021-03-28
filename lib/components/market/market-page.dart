@@ -37,7 +37,6 @@ class _MarketPageState extends State<MarketPage> {
     var width = MediaQuery.of(context).size.width;
     return Consumer<AppProviders>(builder: (context, value, child) {
       List products = value.searchProduct;
-      List search = value.marketData;
       return Container(
         padding: EdgeInsets.only(top: 20, bottom: 5),
         child: Column(
