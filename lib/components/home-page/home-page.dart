@@ -21,7 +21,10 @@ class _HomePageState extends State<HomePage> {
               AnimatedImage(),
             ],
           ),
+          Image.network("gs://agriteck-38b85.appspot.com/creative-material-for-the-harvest-of-farmers-in-autumn-png_57209.jpg",
+          width: 300,height: 200,)
         ],
+        
       ),
     );
   }
