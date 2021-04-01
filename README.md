@@ -1,6 +1,10 @@
 # agriteck_admin
 
-A new Flutter project.
+Run flutter web configuration before application can be run.
+This application is a flutter app runing on firebase.
+User have to add firebase to the project.
+Add firebase SSH1 fingerprint or SSH525 to the firebase project. A new Flutter application.
+The app is required to be run on compuer .
 
 ## Getting Started
 
