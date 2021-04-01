@@ -6,6 +6,8 @@ User have to add firebase to the project.
 Add firebase SSH1 fingerprint or SSH525 to the firebase project. A new Flutter application.
 The app is required to be run on compuer .
 
+## Download the docs folder to read more about the project
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
