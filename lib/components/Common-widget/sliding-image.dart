@@ -60,40 +60,22 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
           width: double.infinity,
-          height:(widget.ht - 100) * .7 ,
-          margin: EdgeInsets.all(5.0),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade100,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
+          height: (widget.ht - 100) * .7,
           child: CarouselSlider.builder(
               controller: _sliderKey,
               unlimitedMode: true,
               slideBuilder: (index) {
-                return Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        widget.items[index],
-                        width: double.infinity,
-                        fit: BoxFit.fill,
-                        height: (widget.ht - 100) * .7,
-                      ),
-                    ),
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Image.asset(
+                    widget.items[index],
+                    width: double.infinity,
+                    fit: BoxFit.fill,
+                    height: (widget.ht) * .7,
                   ),
                 );
               },
@@ -114,7 +96,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
                   IconButton(
                     iconSize: 48,
                     icon: Icon(
-                      Icons.skip_previous,
+                      Icons.chevron_left,
                       color: primary,
                     ),
                     onPressed: () {
@@ -124,7 +106,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
                   IconButton(
                     iconSize: 48,
                     icon: Icon(
-                      Icons.skip_next,
+                      Icons.chevron_right,
                       color: primary,
                     ),
                     onPressed: () {

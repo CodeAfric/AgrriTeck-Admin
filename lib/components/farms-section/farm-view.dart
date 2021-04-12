@@ -81,360 +81,360 @@ class _ViewFarmState extends State<ViewFarm> {
               Expanded(
                 flex: 1,
                 child: SingleChildScrollView(
-                child: Container(
-                color: Colors.white,
-                margin: EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                width: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CustomImageSlider(
-                      items: widget.farms.images,
-                      ht: ht,
+                  child: Container(
+                    color: Colors.white,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: 20,
                     ),
-                    ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: Text(
-                          "Farm Details",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: primary,
-                              fontSize: 14,
-                              decoration: TextDecoration.underline),
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CustomImageSlider(
+                          items: widget.farms.images,
+                          ht: ht,
                         ),
-                      ),
-                      subtitle: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 18, bottom: 10, left: 18),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Farm ID: ",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: primaryLight,
-                                      fontSize: 13),
-                                ),
-                                Text(
-                                  widget.farms.farmId,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.grey,
-                                      fontSize: 13),
-                                ),
-                              ],
-                            ),
-                          ),
-                          ListTile(
-                            title: Padding(
-                              padding: const EdgeInsets.only(bottom: 5),
-                              child: Text(
-                                "Description:",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    color: primaryLight,
-                                    fontSize: 13),
-                              ),
-                            ),
-                            subtitle: Text(
-                              widget.farms.description,
-                              overflow: TextOverflow.ellipsis,
+                        ListTile(
+                          title: Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: Text(
+                              "Farm Details",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                  fontSize: 13),
+                                  fontWeight: FontWeight.w700,
+                                  color: primary,
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline),
                             ),
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 18, top: 10),
-                            child: Wrap(
-                              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              runSpacing: 10,
-                              spacing: 10,
-                              children: [
-                                Text(
-                                  "Crops on Farm:",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: primaryLight,
-                                      fontSize: 13),
-                                ),
-                                Container(
-                                  child: Wrap(
-                                      crossAxisAlignment:
-                                          WrapCrossAlignment.start,
-                                      alignment: WrapAlignment.start,
-                                      children: List.generate(
-                                        widget.farms.cropType.length,
-                                        (index) => Padding(
-                                          padding:
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 5),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              CircleAvatar(
-                                                backgroundColor:
-                                                    Colors.grey,
-                                                radius: 4,
-                                              ),
-                                              SizedBox(
-                                                width: 4,
-                                              ),
-                                              Text(
-                                                widget
-                                                    .farms.cropType[index],
-                                                style: TextStyle(
-                                                    fontSize: 13,
-                                                    fontWeight:
-                                                        FontWeight.bold,
-                                                    color: Colors.grey),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      )),
-                                ),
-                                Row(
+                          subtitle: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 18, bottom: 10, left: 18),
+                                child: Row(
                                   children: [
                                     Text(
-                                      "Location:",
+                                      "Farm ID: ",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
                                           color: primaryLight,
                                           fontSize: 13),
                                     ),
-                                    SizedBox(
-                                      width: 8,
-                                    ),
                                     Text(
-                                      widget.farms.location != null
-                                          ? widget.farms.location
-                                          : "",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey,
-                                          fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Farm Size:",
+                                      widget.farms.farmId,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          color: primaryLight,
-                                          fontSize: 13),
-                                    ),
-                                    SizedBox(
-                                      width: 8,
-                                    ),
-                                    Text(
-                                      widget.farms.farmSize.toString() !=
-                                              null
-                                          ? widget.farms.farmSize
-                                                  .toString() +
-                                              " Acr"
-                                          : "",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
                                           color: Colors.grey,
                                           fontSize: 13),
                                     ),
                                   ],
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: Text(
-                          "Farmer",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: primary,
-                              fontSize: 14,
-                              decoration: TextDecoration.underline),
-                        ),
-                      ),
-                      subtitle: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 5, bottom: 5, left: 18),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Farmer ID: ",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: primaryLight,
-                                      fontSize: 13),
-                                ),
-                                Text(
-                                  widget.farms.farmerId,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.grey,
-                                      fontSize: 13),
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          //Todo get farmer name and contact here and insert
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 5, bottom: 5, left: 18),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Farmer Name: ",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: primaryLight,
-                                      fontSize: 13),
-                                ),
-                                Text(
-                                  "Farmer Name Here",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.grey,
-                                      fontSize: 13),
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 5, bottom: 5, left: 18),
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Farmer Contact: ",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: primaryLight,
-                                      fontSize: 13),
-                                ),
-                                Text(
-                                  "+233 0248485308",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      color: Colors.grey,
-                                      fontSize: 13),
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    ListTile(
-                      title: Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: Text(
-                          "Farm History",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              color: primary,
-                              fontSize: 14,
-                              decoration: TextDecoration.underline),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40),
-                      child: Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: primaryLight,
-                              border: Border(
-                                  top: BorderSide(
-                                      width: 1, color: Colors.grey)),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
-                            margin: EdgeInsets.symmetric(horizontal: 5),
-                            child: Row(
-                              mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  width: 100,
+                              ),
+                              ListTile(
+                                title: Padding(
+                                  padding: const EdgeInsets.only(bottom: 5),
                                   child: Text(
-                                    'Date',
+                                    "Description:",
                                     style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                                        fontWeight: FontWeight.w700,
+                                        color: primaryLight,
+                                        fontSize: 13),
                                   ),
                                 ),
-                                Container(
-                                    width:
-                                        MediaQuery.of(context).size.width *
-                                            0.3,
-                                    child: Text(
-                                      'Activity on Farm',
+                                subtitle: Text(
+                                  widget.farms.description,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey,
+                                      fontSize: 13),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 18, top: 10),
+                                child: Wrap(
+                                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  runSpacing: 10,
+                                  spacing: 10,
+                                  children: [
+                                    Text(
+                                      "Crops on Farm:",
                                       style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                                Container(
-                                    width:
-                                        MediaQuery.of(context).size.width *
-                                            0.3,
-                                    child: Text(
-                                      'Inputs',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                              ],
+                                          fontWeight: FontWeight.w700,
+                                          color: primaryLight,
+                                          fontSize: 13),
+                                    ),
+                                    Container(
+                                      child: Wrap(
+                                          crossAxisAlignment:
+                                              WrapCrossAlignment.start,
+                                          alignment: WrapAlignment.start,
+                                          children: List.generate(
+                                            widget.farms.cropType.length,
+                                            (index) => Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 5),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  CircleAvatar(
+                                                    backgroundColor:
+                                                        Colors.grey,
+                                                    radius: 4,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 4,
+                                                  ),
+                                                  Text(
+                                                    widget
+                                                        .farms.cropType[index],
+                                                    style: TextStyle(
+                                                        fontSize: 13,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.grey),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          )),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Location:",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              color: primaryLight,
+                                              fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          widget.farms.location != null
+                                              ? widget.farms.location
+                                              : "",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.grey,
+                                              fontSize: 13),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Farm Size:",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              color: primaryLight,
+                                              fontSize: 13),
+                                        ),
+                                        SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          widget.farms.farmSize.toString() !=
+                                                  null
+                                              ? widget.farms.farmSize
+                                                      .toString() +
+                                                  " Acr"
+                                              : "",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.grey,
+                                              fontSize: 13),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        ListTile(
+                          title: Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: Text(
+                              "Farmer",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: primary,
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline),
                             ),
                           ),
-                          Container(
-                            child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemCount: widget.farms.farmState.length,
-                                itemBuilder:
-                                    (BuildContext ctxt, int index) {
-                                  return historyRow(
-                                      widget.farms.farmState[index]
-                                          ['stamp'],
-                                      widget.farms.farmState[index]
-                                          ['state'],
-                                      widget.farms.farmState[index]
-                                          ['input']);
-                                }),
+                          subtitle: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 5, bottom: 5, left: 18),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Farmer ID: ",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: primaryLight,
+                                          fontSize: 13),
+                                    ),
+                                    Text(
+                                      widget.farms.farmerId,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.grey,
+                                          fontSize: 13),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              //Todo get farmer name and contact here and insert
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 5, bottom: 5, left: 18),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Farmer Name: ",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: primaryLight,
+                                          fontSize: 13),
+                                    ),
+                                    Text(
+                                      widget.farms.farmerId,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.grey,
+                                          fontSize: 13),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 5, bottom: 5, left: 18),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Farmer Contact: ",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: primaryLight,
+                                          fontSize: 13),
+                                    ),
+                                    Text(
+                                      "+233 0248485308",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.grey,
+                                          fontSize: 13),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        ListTile(
+                          title: Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: Text(
+                              "Farm History",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  color: primary,
+                                  fontSize: 14,
+                                  decoration: TextDecoration.underline),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: primaryLight,
+                                  border: Border(
+                                      top: BorderSide(
+                                          width: 1, color: Colors.grey)),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 15),
+                                margin: EdgeInsets.symmetric(horizontal: 5),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      child: Text(
+                                        'Date',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.3,
+                                        child: Text(
+                                          'Activity on Farm',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                    Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.3,
+                                        child: Text(
+                                          'Inputs',
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        )),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                child: ListView.builder(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    scrollDirection: Axis.vertical,
+                                    itemCount: widget.farms.farmState.length,
+                                    itemBuilder:
+                                        (BuildContext ctxt, int index) {
+                                      return historyRow(
+                                          widget.farms.farmState[index]
+                                              ['stamp'],
+                                          widget.farms.farmState[index]
+                                              ['state'],
+                                          widget.farms.farmState[index]
+                                              ['input']);
+                                    }),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        )
+                      ],
                     ),
-                    SizedBox(
-                      height: 30,
-                    )
-                  ],
-                ),
-                ),
+                  ),
                 ),
               )
             ],
@@ -474,6 +474,20 @@ class _ViewFarmState extends State<ViewFarm> {
                 ),
                 child: Row(
                   children: [
+                    Text(
+                      "Farm ID: ",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          color: primary,
+                          fontSize: 14),
+                    ),
+                    Text(
+                      '#${widget.farms.farmId}',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black54,
+                          fontSize: 24),
+                    ),
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -493,7 +507,7 @@ class _ViewFarmState extends State<ViewFarm> {
                               Navigator.of(context).pop();
                             }),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -506,14 +520,23 @@ class _ViewFarmState extends State<ViewFarm> {
                   child: Row(
                     children: [
                       Expanded(
-                        flex: 3, child:CustomImageSlider(
-                        items: widget.farms.images,
-                        ht: ht,
-                      ),
+                        flex: 3,
+                        child: Container(
+                          padding: EdgeInsets.all(10.0),
+                          margin: EdgeInsets.all(10.0),
+                          decoration: BoxDecoration(
+                            color: Colors.grey.shade100,
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: CustomImageSlider(
+                            items: widget.farms.images,
+                            ht: ht,
+                          ),
+                        ),
                         //child: CustomSlidingImage(ht,widget.farms.images),
                       ),
                       Container(
-                        width: wt*.4,
+                        width: wt * .4,
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
@@ -543,8 +566,7 @@ class _ViewFarmState extends State<ViewFarm> {
                                   ),
                                   ListTile(
                                     title: Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 8),
+                                      padding: const EdgeInsets.only(bottom: 8),
                                       child: Text(
                                         "Crops on Farm:",
                                         style: TextStyle(
@@ -560,23 +582,20 @@ class _ViewFarmState extends State<ViewFarm> {
                                         children: List.generate(
                                           widget.farms.cropType.length,
                                           (index) => Padding(
-                                            padding:
-                                                const EdgeInsets.symmetric(
-                                                    horizontal: 5),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 5),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 CircleAvatar(
-                                                  backgroundColor:
-                                                      Colors.grey,
+                                                  backgroundColor: Colors.grey,
                                                   radius: 4,
                                                 ),
                                                 SizedBox(
                                                   width: 4,
                                                 ),
                                                 Text(
-                                                  widget
-                                                      .farms.cropType[index],
+                                                  widget.farms.cropType[index],
                                                   style: TextStyle(
                                                       fontSize: 16,
                                                       fontWeight:
@@ -654,8 +673,7 @@ class _ViewFarmState extends State<ViewFarm> {
                                   ),
                                   ListTile(
                                     title: Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 5),
+                                      padding: const EdgeInsets.only(bottom: 5),
                                       child: Text(
                                         "Description:",
                                         style: TextStyle(
@@ -791,8 +809,7 @@ class _ViewFarmState extends State<ViewFarm> {
                                     ),
                                     padding: EdgeInsets.symmetric(
                                         vertical: 10, horizontal: 15),
-                                    margin:
-                                        EdgeInsets.symmetric(horizontal: 5),
+                                    margin: EdgeInsets.symmetric(horizontal: 5),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -804,8 +821,7 @@ class _ViewFarmState extends State<ViewFarm> {
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 color: Colors.white,
-                                                fontWeight:
-                                                    FontWeight.normal),
+                                                fontWeight: FontWeight.normal),
                                           ),
                                         ),
                                         Container(
@@ -833,8 +849,7 @@ class _ViewFarmState extends State<ViewFarm> {
                                   ),
                                   Container(
                                     child: ListView.builder(
-                                        physics:
-                                            NeverScrollableScrollPhysics(),
+                                        physics: NeverScrollableScrollPhysics(),
                                         shrinkWrap: true,
                                         scrollDirection: Axis.vertical,
                                         itemCount:
@@ -880,32 +895,38 @@ class _ViewFarmState extends State<ViewFarm> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            width: 100,
-            child: Text(
-              date != null ? date : '',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black54,
-                  fontSize: 16),
-            ),
-          ),
-          Container(
-            width: 150,
-            child: Text(activity != null ? activity : '',
+          Expanded(
+            flex: 1,
+            child: Container(
+              child: Text(
+                date != null ? date : '',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: Colors.black54,
-                    fontSize: 16)),
+                    fontSize: 16),
+              ),
+            ),
           ),
-          Container(
-            width: 150,
-            child: Text(
-              input != null ? input : '',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black54,
-                  fontSize: 16),
+          Expanded(
+            flex: 2,
+            child: Container(
+              child: Text(activity != null ? activity : '',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black54,
+                      fontSize: 16)),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              child: Text(
+                input != null ? input : '',
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black54,
+                    fontSize: 16),
+              ),
             ),
           ),
         ],

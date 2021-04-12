@@ -1,10 +1,13 @@
 import 'package:agriteck_admin/components/community-section/community-page.dart';
+import 'package:agriteck_admin/components/disease-section/disease-add.dart';
 import 'package:agriteck_admin/components/home-page/home-page.dart';
 import 'package:agriteck_admin/components/market/market-page.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
+import 'components/Common-widget/floating-buttton.dart';
 import 'components/Common-widget/responsive_widget.dart';
 import 'components/Common-widget/search-bar.dart';
 import 'components/Common-widget/shape-painter.dart';
@@ -42,49 +45,19 @@ class _HomeScreenState extends State<HomeScreen> {
   List farmers, diseases, farms, community, market;
   ScrollController _controller;
   final itemSize = 100.0;
-  bool scrollRight=true;
-  bool scrollLeft=false;
-  List<Map<String,dynamic>>navigationItem=[
-    {
-      'label':"Home",
-      'navIco':NavIcons.Home
-    },
-    {
-      'label':"Farmers",
-      'navIco':NavIcons.Users
-    },
-    {
-      'label':"Farms",
-      'navIco':NavIcons.Farms
-    },
-    {
-      'label':"Diseases",
-      'navIco':NavIcons.Diseases
-    },
-    {
-      'label':"Vendors",
-      'navIco':NavIcons.Vendors
-    },
-    {
-      'label':"Investors",
-      'navIco':NavIcons.Investors
-    },
-    {
-      'label':"Market",
-      'navIco':NavIcons.Market
-    },
-    {
-      'label':"Crops",
-      'navIco':NavIcons.Crops
-    },
-    {
-      'label':"Community",
-      'navIco':NavIcons.Community
-    },
-    {
-      'label':"Complaints",
-      'navIco':NavIcons.Complaints
-    }
+  bool scrollRight = true;
+  bool scrollLeft = false;
+  List<Map<String, dynamic>> navigationItem = [
+    {'label': "Home", 'navIco': NavIcons.Home},
+    {'label': "Farmers", 'navIco': NavIcons.Users},
+    {'label': "Farms", 'navIco': NavIcons.Farms},
+    {'label': "Diseases", 'navIco': NavIcons.Diseases},
+    {'label': "Vendors", 'navIco': NavIcons.Vendors},
+    {'label': "Investors", 'navIco': NavIcons.Investors},
+    {'label': "Market", 'navIco': NavIcons.Market},
+    {'label': "Crops", 'navIco': NavIcons.Crops},
+    {'label': "Community", 'navIco': NavIcons.Community},
+    {'label': "Complaints", 'navIco': NavIcons.Complaints}
   ];
   void generateData() async {
     diseases = ListGenerator.diseasesData();
@@ -93,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
     farmers = ListGenerator.farmerList();
 
     ///here we get the farmer list
-    farms = ListGenerator.farmsData(); //here we get farms data
+    // farms = ListGenerator.farmsData(); //here we get farms data
     community = ListGenerator.communityData(); //here we get community data
     ///here we get the maket data
     market = ListGenerator.marketData();
@@ -134,18 +107,19 @@ class _HomeScreenState extends State<HomeScreen> {
     if (_controller.offset >= _controller.position.maxScrollExtent &&
         !_controller.position.outOfRange) {
       setState(() {
-        scrollRight=false;
+        scrollRight = false;
       });
-    }else{
+    } else {
       setState(() {
-        scrollRight=true;
+        scrollRight = true;
       });
-
     }
 
-    await readDiseases();
+    await DatabaseServices.readDiseases();
   }
+
   NavIcons navIco;
+
   ///here we  create a list of boolean variables
   ///this snippet will help us apply effect on the Navigation items when item is clicked
   List<bool> selected = [
@@ -175,22 +149,21 @@ class _HomeScreenState extends State<HomeScreen> {
     if (_controller.offset >= _controller.position.maxScrollExtent &&
         !_controller.position.outOfRange) {
       setState(() {
-       scrollRight=false;
+        scrollRight = false;
       });
-    }else{
+    } else {
       setState(() {
-        scrollRight=true;
+        scrollRight = true;
       });
-
     }
     if (_controller.offset <= _controller.position.minScrollExtent &&
         !_controller.position.outOfRange) {
       setState(() {
-       scrollLeft=false;
+        scrollLeft = false;
       });
-    }else{
+    } else {
       setState(() {
-        scrollLeft=true;
+        scrollLeft = true;
       });
     }
   }
@@ -218,10 +191,12 @@ class _HomeScreenState extends State<HomeScreen> {
       mobileScreen: null,
     );
   }
+
   _moveUp() {
     _controller.animateTo(_controller.offset - itemSize,
         curve: Curves.linear, duration: Duration(milliseconds: 500));
   }
+
   _moveDown() {
     _controller.animateTo(_controller.offset + itemSize,
         curve: Curves.linear, duration: Duration(milliseconds: 500));
@@ -232,6 +207,39 @@ class _HomeScreenState extends State<HomeScreen> {
     double _height = MediaQuery.of(context).size.height;
     generateData();
     return Scaffold(
+      floatingActionButton: navIco == NavIcons.Diseases
+          ? FloatingButton(
+              label: 'Add New Disease',
+              icon: Icons.thumb_up,
+              onPressHandler: () {
+                showMaterialModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (context) {
+                    return DiseasesAdd(
+                      disease: diseases[0],
+                    );
+                  },
+                );
+              },
+            )
+          : navIco == NavIcons.Community
+              ? FloatingButton(
+                  label: 'Ask Community',
+                  icon: Icons.add,
+                  onPressHandler: () {
+                    showMaterialModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return DiseasesAdd(
+                          disease: diseases[0],
+                        );
+                      },
+                    );
+                  },
+                )
+              : null,
       body: Stack(
         children: [
           Container(
@@ -259,16 +267,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontSize: 45,
                     ),
                     SizedBox(width: 50),
-                    scrollLeft&&!isSearching?
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: IconButton(
-                          icon: Icon(
-                            Icons.arrow_back_ios,
-                            color: primary,
-                          ),
-                          onPressed: _moveUp),
-                    ):Text(''),
+                    scrollLeft && !isSearching
+                        ? Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: IconButton(
+                                icon: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: primary,
+                                ),
+                                onPressed: _moveUp),
+                          )
+                        : Text(''),
                     isSearching
                         ? SizedBox(
                             width: _width * 0.5,
@@ -277,59 +286,60 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )
                         : Container(
-                          width: _width*.6,
-                          height: 30,
-                          padding: EdgeInsets.only(right: 40),
-                          child: ListView.builder(
-                            controller: _controller,
-                            itemCount: navigationItem.length,
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.only(left: 40),
-                                child: Container(
-                                  child: NavBarButton(
-                                              tex: navigationItem[index]['label'],
-                                              active: selected[index],
-                                              touched: () {
-                                                setState(() {
-                                                  select(index);
-                                                  navIco = navigationItem[index]['navIco'];
-                                                });
-                                              },
-                                            ),
-                                ),
-                              );
-                            },
+                            width: _width * .6,
+                            height: 30,
+                            padding: EdgeInsets.only(right: 40),
+                            child: ListView.builder(
+                              controller: _controller,
+                              itemCount: navigationItem.length,
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: const EdgeInsets.only(left: 40),
+                                  child: Container(
+                                    child: NavBarButton(
+                                      tex: navigationItem[index]['label'],
+                                      active: selected[index],
+                                      touched: () {
+                                        setState(() {
+                                          select(index);
+                                          navIco =
+                                              navigationItem[index]['navIco'];
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
-
-                        ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        scrollRight&&!isSearching?
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: IconButton(
-                              icon: Icon(
-                                Icons.arrow_forward_ios,
-                                color: primary,
-                              ),
-                              onPressed: _moveDown),
-                        ):Text(''),
-                        navIco==NavIcons.Home?Container():
-                        IconButton(
-                            icon: Icon(
-                              !isSearching ? Icons.search : Icons.close,
-                              color: Colors.black,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                generateData();
-                                isSearching = isSearching ? false : true;
-                              });
-                            }),
+                        scrollRight && !isSearching
+                            ? Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: IconButton(
+                                    icon: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: primary,
+                                    ),
+                                    onPressed: _moveDown),
+                              )
+                            : Text(''),
+                        navIco == NavIcons.Home
+                            ? Container()
+                            : IconButton(
+                                icon: Icon(
+                                  !isSearching ? Icons.search : Icons.close,
+                                  color: Colors.black,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    generateData();
+                                    isSearching = isSearching ? false : true;
+                                  });
+                                }),
                       ],
                     ),
                   ],
@@ -337,7 +347,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: MediaQuery.of(context).size.height - 100,
                   width: MediaQuery.of(context).size.width,
-                  padding: EdgeInsets.only(left: 50, right: 20),
+                  padding: EdgeInsets.only(left: 20, right: 20),
                   child: Scrollbar(
                     thickness: 10,
                     controller: _scrollController,
@@ -404,13 +414,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 70,
                       fontSize: 45,
                     ),
-                    navIco==NavIcons.Home?Container():
-                    SizedBox(
-                      width: _width * 0.45,
-                      child: SearchBar(
-                        page: navIco,
-                      ),
-                    ),
+                    navIco == NavIcons.Home
+                        ? Container()
+                        : SizedBox(
+                            width: _width * 0.45,
+                            child: SearchBar(
+                              page: navIco,
+                            ),
+                          ),
                     Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: PopupMenuButton<NavIcons>(
