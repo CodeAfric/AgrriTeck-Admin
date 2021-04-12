@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:agriteck_admin/model-data/data-models.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
