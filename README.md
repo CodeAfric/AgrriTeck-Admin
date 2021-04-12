@@ -1,4 +1,4 @@
-# agriteck_admin
+# Agriteck Admin Web Console
 
 1. Run flutter web configuration before application can be run.
 2. This application is a flutter app runing on firebase.
