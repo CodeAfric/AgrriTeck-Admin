@@ -308,7 +308,7 @@ class _ViewFarmState extends State<ViewFarm> {
                                           fontSize: 13),
                                     ),
                                     Text(
-                                      "Farmer Name Here",
+                                      widget.farms.farmerId,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
                                           color: Colors.grey,

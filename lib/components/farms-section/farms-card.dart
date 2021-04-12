@@ -70,22 +70,37 @@ class _FarmsCardState extends State<FarmsCard> {
             Container(
               width: double.infinity,
               child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(14),
-                  topLeft: Radius.circular(14),
-                ),
-                child: Image.asset(
-                  widget.farms.images[0],
-                  fit: BoxFit.fill,
-                  height: 155,
-                ),
-              ),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(14),
+                    topLeft: Radius.circular(14),
+                  ),
+                  child: widget.farms.images == null ||
+                          widget.farms.images.length < 0
+                      ? Image.asset(
+                    "assets/plants/crop1.png",
+                          fit: BoxFit.fill,
+                          height: 155,
+                        )
+                      : Image.asset(
+                    "assets/plants/crop1.png",
+                          fit: BoxFit.fill,
+                          height: 155,
+                        )
+
+                  // AssetImage('/assets/images/person.png')
+
+                  // Image.asset(
+                  //   widget.farms.images[0],
+                  //   fit: BoxFit.fill,
+                  //   height: 155,
+                  // ),
+                  ),
             ),
             Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 16, bottom: 10, left: 16),
-                  child: Row(
+                  child: Wrap(
                     children: [
                       Text(
                         "Farm ID: ",
@@ -116,33 +131,34 @@ class _FarmsCardState extends State<FarmsCard> {
                     ),
                   ),
                   subtitle: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.start,
-                      alignment: WrapAlignment.start,
-                      children: List.generate(
-                        widget.farms.cropType.length,
-                        (index) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 4,
-                              ),
-                              SizedBox(
-                                width: 4,
-                              ),
-                              Text(
-                                widget.farms.cropType[index],
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.black54),
-                              ),
-                            ],
-                          ),
+                    crossAxisAlignment: WrapCrossAlignment.start,
+                    alignment: WrapAlignment.start,
+                    children: List.generate(
+                      widget.farms.cropType.split(', ').length,
+                      (index) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: Colors.grey,
+                              radius: 4,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text(
+                              widget.farms.cropType[index],
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black54),
+                            ),
+                          ],
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
                 Row(
                   children: [

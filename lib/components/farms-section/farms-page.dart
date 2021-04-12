@@ -35,7 +35,7 @@ class _FarmsPagePageState extends State<FarmsPage> {
 
   getData() async {
     List farmList;
-    var snapshot = await DatabaseServices.getDataFromDatabase('Farmers');
+    var snapshot = await DatabaseServices.getDataFromDatabase('Farms');
 
     farmList = snapshot.docs.toList();
     return farmList;
@@ -90,34 +90,34 @@ class _FarmsPagePageState extends State<FarmsPage> {
         child: Column(
           children: [
             ResponsiveWidget(
-              tabletScreen: Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Wrap(
-                  spacing: 15,
-                  runSpacing: 40,
-                  alignment: WrapAlignment.start,
-                  crossAxisAlignment: WrapCrossAlignment.start,
-                  children: List.generate(
-                    farms.length,
-                    (index) => FarmsCard(
-                        index: index,
-                        width: width * .38,
-                        farms: farms[index],
-                        ht: 460,
-                        press: () {
-                          showMaterialModalBottomSheet(
-                            context: context,
-                            backgroundColor: Colors.transparent,
-                            builder: (context) {
-                              return ViewFarm(
-                                farms: farms[index],
-                              );
-                            },
-                          );
-                        }),
-                  ),
-                ),
-              ),
+              //   tabletScreen: Padding(
+              //     padding: const EdgeInsets.only(top: 50),
+              //     child: Wrap(
+              //       spacing: 15,
+              //       runSpacing: 40,
+              //       alignment: WrapAlignment.start,
+              //       crossAxisAlignment: WrapCrossAlignment.start,
+              //       children: List.generate(
+              //         farms.length,
+              //         (index) => FarmsCard(
+              //             index: index,
+              //             width: width * .38,
+              //             farms: farms[index],
+              //             ht: 460,
+              //             press: () {
+              //               showMaterialModalBottomSheet(
+              //                 context: context,
+              //                 backgroundColor: Colors.transparent,
+              //                 builder: (context) {
+              //                   return ViewFarm(
+              //                     farms: farms[index],
+              //                   );
+              //                 },
+              //               );
+              //             }),
+              //       ),
+              //     ),
+              //   ),
               desktopScreen: Padding(
                   padding: const EdgeInsets.only(top: 50), child: _asyncLoader),
             ),

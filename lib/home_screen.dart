@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
     farmers = ListGenerator.farmerList();
 
     ///here we get the farmer list
-    farms = ListGenerator.farmsData(); //here we get farms data
+    // farms = ListGenerator.farmsData(); //here we get farms data
     community = ListGenerator.communityData(); //here we get community data
     ///here we get the maket data
     market = ListGenerator.marketData();
