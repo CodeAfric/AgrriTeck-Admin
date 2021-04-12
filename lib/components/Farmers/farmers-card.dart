@@ -31,9 +31,7 @@ class _FarmerCardState extends State<FarmerCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        print('sdsd');
-      },
+      onTap: () {},
       hoverColor: Colors.transparent,
       onHover: (value) {
         setState(() {
@@ -73,7 +71,9 @@ class _FarmerCardState extends State<FarmerCard> {
                     boxShadow: [if (!isHover) kDefaultCardShadow],
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(widget.farmers.img),
+                      image: widget.farmers.img == null
+                          ? AssetImage('/assets/images/person.png')
+                          : NetworkImage(widget.farmers.img),
                     ),
                   ),
                 ),

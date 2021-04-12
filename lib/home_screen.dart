@@ -1,9 +1,11 @@
 import 'package:agriteck_admin/components/community-section/community-page.dart';
+import 'package:agriteck_admin/components/disease-section/disease-add.dart';
 import 'package:agriteck_admin/components/home-page/home-page.dart';
 import 'package:agriteck_admin/components/market/market-page.dart';
 import 'package:agriteck_admin/styles/app-colors.dart';
 import 'package:flutter/material.dart';
 import 'package:hovering/hovering.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 import 'components/Common-widget/floating-buttton.dart';
 import 'components/Common-widget/responsive_widget.dart';
@@ -113,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
     }
 
-    await readDiseases();
+    await DatabaseServices.readDiseases();
   }
 
   NavIcons navIco;
@@ -207,15 +209,35 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButton: navIco == NavIcons.Diseases
           ? FloatingButton(
-              label: 'Train Model',
+              label: 'Add New Disease',
               icon: Icons.thumb_up,
-              onPressHandler: () {},
+              onPressHandler: () {
+                showMaterialModalBottomSheet(
+                  context: context,
+                  backgroundColor: Colors.transparent,
+                  builder: (context) {
+                    return DiseasesAdd(
+                      disease: diseases[0],
+                    );
+                  },
+                );
+              },
             )
           : navIco == NavIcons.Community
               ? FloatingButton(
                   label: 'Ask Community',
-                  icon: Icons.thumb_up,
-                  onPressHandler: () {},
+                  icon: Icons.add,
+                  onPressHandler: () {
+                    showMaterialModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) {
+                        return DiseasesAdd(
+                          disease: diseases[0],
+                        );
+                      },
+                    );
+                  },
                 )
               : null,
       body: Stack(

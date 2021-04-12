@@ -43,25 +43,6 @@ class _DiseasePageState extends State<DiseasePage> {
         padding: EdgeInsets.only(top: 20, bottom: 5),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: SizedBox(
-                    width: 200,
-                    child: RoundedButton(
-                      color: primaryDark,
-                      text: 'Train Model',
-                      textColor: Colors.white,
-                      fontSize: 14,
-                      horizontalPadding: 15,
-                      press: () {},
-                    ),
-                  ),
-                ),
-              ],
-            ),
             ResponsiveWidget(
               tabletScreen: Padding(
                 padding: const EdgeInsets.only(top: 50),
